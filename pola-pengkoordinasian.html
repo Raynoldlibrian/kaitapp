@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pola Pengkoordinasian Administratif Pelaksanaan Tugas - Kabupaten Indragiri Hulu</title>
+    <!-- Google Fonts & Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="gradient-header text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-5">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-md border border-white/20 shadow-inner">
+                        <i class="fa-solid fa-sitemap text-3xl text-blue-200"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-blue-500/30 backdrop-blur-md border border-blue-300/30 rounded-full text-xs font-medium text-blue-100 mb-2">
+                            Lampiran Surat No. 000.8.3/BAG.ORG-SETDA/120
+                        </span>
+                        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">Pola Pengkoordinasian Administratif</h1>
+                        <p class="text-blue-100 text-sm mt-1">Pelaksanaan Tugas Perangkat Daerah & Pelayanan Administratif • Pemkab Indragiri Hulu</p>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/20 text-right text-xs text-blue-100">
+                    <p class="font-semibold text-white text-sm"><i class="fa-solid fa-calendar-day mr-2"></i>15 April 2026</p>
+                    <p>Perbup Inhu No. 50 Tahun 2025</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+
+        <!-- Search & Filter Controls -->
+        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-slate-200/80 mb-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Search Box -->
+                <div class="relative w-full md:w-96">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <input type="text" id="searchInput" onkeyup="filterData()" 
+                        placeholder="Cari perangkat daerah / bagian..." 
+                        class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
+                </div>
+                <!-- Asisten Filter -->
+                <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                    <button onclick="filterAsisten('all')" id="btn-all" class="filter-btn px-4 py-2 text-xs font-semibold rounded-xl bg-slate-900 text-white transition shadow-sm">
+                        Semua Asisten
+                    </button>
+                    <button onclick="filterAsisten('pem')" id="btn-pem" class="filter-btn px-4 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        Asisten I (Pem & Kesra)
+                    </button>
+                    <button onclick="filterAsisten('ekbang')" id="btn-ekbang" class="filter-btn px-4 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        Asisten II (Ekbang)
+                    </button>
+                    <button onclick="filterAsisten('um')" id="btn-um" class="filter-btn px-4 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        Asisten III (Adum)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid Cards Container -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" id="asistenGrid">
+
+            <!-- ASISTEN I -->
+            <div class="asisten-card pem bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden card-hover flex flex-col">
+                <!-- Card Header -->
+                <div class="bg-gradient-to-r from-emerald-600 to-teal-600 p-5 text-white">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-1 bg-white/20 rounded-md text-xs font-extrabold tracking-wider uppercase">Asisten I</span>
+                        <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm"><i class="fa-solid fa-landmark"></i></span>
+                    </div>
+                    <h2 class="text-lg font-bold">Asisten Pemerintahan dan Kesejahteraan Rakyat</h2>
+                </div>
+                <!-- Legalitas / Tugas -->
+                <div class="p-4 bg-emerald-50/50 border-b border-emerald-100 text-xs text-emerald-900 flex items-start gap-2.5">
+                    <i class="fa-solid fa-circle-info text-emerald-600 mt-0.5 text-sm shrink-0"></i>
+                    <div>
+                        <strong class="font-semibold block mb-0.5">Legalitas Koordinasi:</strong>
+                        Membantu Sekretaris Daerah dalam penyusunan kebijakan, pengoordinasian pelaksanaan tugas, pemantauan, evaluasi, dan pembinaan yang membidangi urusan wajib pelayanan dasar dan urusan pemerintahan umum.
+                    </div>
+                </div>
+                <!-- Content List -->
+                <div class="p-5 flex-grow space-y-4">
+                    <!-- Setda Sub-list -->
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">1. Sekretariat Daerah</span>
+                        <ul class="space-y-1.5 text-sm text-slate-700 pl-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-emerald-500"></i> Bagian Tata Pemerintahan</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-emerald-500"></i> Bagian Kesejahteraan Rakyat</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-emerald-500"></i> Bagian Hukum</li>
+                        </ul>
+                    </div>
+                    <!-- Perangkat Daerah -->
+                    <div>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Perangkat Daerah / Unit Kerja</span>
+                        <ol class="space-y-2 text-sm text-slate-700 list-decimal list-inside font-medium">
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Sekretariat DPRD</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Pendidikan dan Kebudayaan</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Kesehatan</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Pengendalian Penduduk, Keluarga Berencana, Pemberdayaan Perempuan, dan Perlindungan Anak</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Kependudukan dan Pencatatan Sipil</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Sosial</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Pemberdayaan Masyarakat dan Desa</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Kepemudaan, Olahraga, dan Pariwisata</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Perpustakaan dan Kearsipan</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Satuan Polisi Pamong Praja</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Badan Kesatuan Bangsa dan Politik</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Badan Penanggulangan Bencana Daerah, Pemadam Kebakaran dan Penyelamatan</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Kecamatan</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- Card Footer Badges -->
+                <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <span><i class="fa-solid fa-folder-tree mr-1.5"></i> Total Instansi</span>
+                    <span class="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">14 PD / Unit</span>
+                </div>
+            </div>
+
+            <!-- ASISTEN II -->
+            <div class="asisten-card ekbang bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden card-hover flex flex-col">
+                <!-- Card Header -->
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-5 text-white">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-1 bg-white/20 rounded-md text-xs font-extrabold tracking-wider uppercase">Asisten II</span>
+                        <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm"><i class="fa-solid fa-chart-line"></i></span>
+                    </div>
+                    <h2 class="text-lg font-bold">Asisten Perekonomian dan Pembangunan</h2>
+                </div>
+                <!-- Legalitas / Tugas -->
+                <div class="p-4 bg-blue-50/50 border-b border-blue-100 text-xs text-blue-900 flex items-start gap-2.5">
+                    <i class="fa-solid fa-circle-info text-blue-600 mt-0.5 text-sm shrink-0"></i>
+                    <div>
+                        <strong class="font-semibold block mb-0.5">Legalitas Koordinasi:</strong>
+                        Melaksanakan penyusunan kebijakan Daerah serta pemantauan dan evaluasi di bidang perekonomian, sumber daya alam, administrasi pembangunan, dan pengadaan barang/jasa.
+                    </div>
+                </div>
+                <!-- Content List -->
+                <div class="p-5 flex-grow space-y-4">
+                    <!-- Setda Sub-list -->
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">1. Sekretariat Daerah</span>
+                        <ul class="space-y-1.5 text-sm text-slate-700 pl-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-blue-500"></i> Bagian Perekonomian dan Sumber Daya Alam</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-blue-500"></i> Bagian Administrasi Pembangunan</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-blue-500"></i> Bagian Pengadaan Barang dan Jasa</li>
+                        </ul>
+                    </div>
+                    <!-- Perangkat Daerah -->
+                    <div>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Perangkat Daerah / Unit Kerja</span>
+                        <ol class="space-y-2 text-sm text-slate-700 list-decimal list-inside font-medium" start="2">
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Pekerjaan Umum, Penataan Ruang, Perumahan, dan Kawasan Permukiman</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Lingkungan Hidup, Kebersihan, dan Pertamanan</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Perindustrian, Perdagangan, Koperasi, Usaha Kecil, dan Menengah</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Perkebunan, Peternakan, dan Perikanan</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Ketahanan Pangan, Tanaman Pangan, dan Hortikultura</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Tenaga Kerja</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Perhubungan</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Badan Perencanaan Pembangunan, Riset, dan Inovasi Daerah</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- Card Footer Badges -->
+                <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <span><i class="fa-solid fa-folder-tree mr-1.5"></i> Total Instansi</span>
+                    <span class="font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">10 PD / Unit</span>
+                </div>
+            </div>
+
+            <!-- ASISTEN III -->
+            <div class="asisten-card um bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden card-hover flex flex-col">
+                <!-- Card Header -->
+                <div class="bg-gradient-to-r from-purple-600 to-indigo-700 p-5 text-white">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-1 bg-white/20 rounded-md text-xs font-extrabold tracking-wider uppercase">Asisten III</span>
+                        <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm"><i class="fa-solid fa-sliders"></i></span>
+                    </div>
+                    <h2 class="text-lg font-bold">Asisten Administrasi Umum</h2>
+                </div>
+                <!-- Legalitas / Tugas -->
+                <div class="p-4 bg-purple-50/50 border-b border-purple-100 text-xs text-purple-900 flex items-start gap-2.5">
+                    <i class="fa-solid fa-circle-info text-purple-600 mt-0.5 text-sm shrink-0"></i>
+                    <div>
+                        <strong class="font-semibold block mb-0.5">Legalitas Koordinasi:</strong>
+                        Mengoordinasikan kebijakan, memantau, mengevaluasi, dan membina administrasi pada bidang umum, organisasi, protokol, komunikasi pimpinan, serta perencanaan dan keuangan.
+                    </div>
+                </div>
+                <!-- Content List -->
+                <div class="p-5 flex-grow space-y-4">
+                    <!-- Setda Sub-list -->
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">1. Sekretariat Daerah</span>
+                        <ul class="space-y-1.5 text-sm text-slate-700 pl-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-purple-500"></i> Bagian Umum</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-purple-500"></i> Bagian Organisasi</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-purple-500"></i> Bagian Protokol dan Komunikasi Pimpinan</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-purple-500"></i> Bagian Perencanaan dan Keuangan</li>
+                        </ul>
+                    </div>
+                    <!-- Perangkat Daerah -->
+                    <div>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Perangkat Daerah / Unit Kerja</span>
+                        <ol class="space-y-2 text-sm text-slate-700 list-decimal list-inside font-medium" start="2">
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Inspektorat Daerah</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Dinas Komunikasi, Informatika, dan Statistik</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Badan Pengelolaan Keuangan dan Aset Daerah</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Badan Pendapatan Daerah</li>
+                            <li class="item-node p-2 rounded-lg hover:bg-slate-50 transition">Badan Kepegawaian, Pendidikan, dan Pelatihan Daerah</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- Card Footer Badges -->
+                <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <span><i class="fa-solid fa-folder-tree mr-1.5"></i> Total Instansi</span>
+                    <span class="font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">6 PD / Unit</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-building-columns text-slate-400 text-sm"></i>
+                <span>Bagian Organisasi Sekretariat Daerah Kabupaten Indragiri Hulu</span>
+            </div>
+            <div>
+                <span>Ditetapkan oleh: <strong>Sekretaris Daerah (Zulfahmi Adrian)</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        function filterAsisten(type) {
+            // Update active button state
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-4 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
+            });
+            document.getElementById('btn-' + type).className = "filter-btn px-4 py-2 text-xs font-semibold rounded-xl bg-slate-900 text-white transition shadow-sm";
+
+            // Show/hide cards
+            const cards = document.querySelectorAll('.asisten-card');
+            cards.forEach(card => {
+                if (type === 'all' || card.classList.contains(type)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterData() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.asisten-card li');
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.backgroundColor = '#fef08a'; // highlight
+                    item.style.borderRadius = '4px';
+                } else {
+                    item.style.backgroundColor = 'transparent';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
