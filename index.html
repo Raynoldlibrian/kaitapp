@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal Aplikasi & Modul Interaktif</title>
+  
+  <!-- PWA Meta Tags & Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="logo-dd.png">
+
   <!-- Google Fonts & FontAwesome Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,7 +26,7 @@
       --text-main: #f8fafc;
       --text-sub: #94a3b8;
       --accent: #38bdf8;
-      --gold: #D4A017; /* Warna emas logo */
+      --gold: #D4A017;
     }
 
     * {
@@ -37,7 +46,7 @@
       padding: 40px 20px;
     }
 
-   .container {
+    .container {
       width: 100%;
       max-width: 680px;
       display: flex;
@@ -46,59 +55,52 @@
     }
 
     /* Profile Header */
-   .profile {
+    .profile {
       text-align: center;
       margin-bottom: 32px;
     }
 
     .avatar {
-        width: 110px;
-        height: 110px;
-        background: transparent; /* Hapus background hitam */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 16px;
-        padding: 0; /* Padding dihapus */
-        /*filter: drop-shadow(0 0 25px rgba(212, 160, 23, 0.5));  Ganti box-shadow jadi drop-shadow biar glow nya ngikut bentuk logo */
-        transition: all 0.3s ease;
-      }
-
-      .avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      .avatar:hover {
-        /*filter: drop-shadow(0 0 35px rgba(212, 160, 23, 0.8));*/
-        transform: scale(1.05);
-      }
-
-   .avatar svg {
-      width: 100%;
-      height: 100%;
+      width: 110px;
+      height: 110px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      padding: 0;
+      transition: all 0.3s ease;
     }
 
-   .profile h1 {
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05);
+    }
+
+    .profile h1 {
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 6px;
     }
 
-   .profile p {
+    .profile p {
       color: var(--text-sub);
       font-size: 0.95rem;
     }
 
     /* Filter & Search Bar */
-   .search-box {
+    .search-box {
       width: 100%;
       margin-bottom: 24px;
       position: relative;
     }
 
-   .search-box input {
+    .search-box input {
       width: 100%;
       padding: 14px 20px 14px 48px;
       border-radius: 14px;
@@ -110,12 +112,12 @@
       transition: all 0.2s ease;
     }
 
-   .search-box input:focus {
+    .search-box input:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
     }
 
-   .search-box i {
+    .search-box i {
       position: absolute;
       left: 18px;
       top: 50%;
@@ -124,7 +126,7 @@
     }
 
     /* Links Container */
-   .links-list {
+    .links-list {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -132,7 +134,7 @@
     }
 
     /* Link Card */
-   .link-card {
+    .link-card {
       display: flex;
       align-items: center;
       padding: 16px 20px;
@@ -145,14 +147,14 @@
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-   .link-card:hover {
+    .link-card:hover {
       background: var(--card-hover-bg);
       transform: translateY(-2px);
       border-color: rgba(56, 189, 248, 0.4);
       box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.3);
     }
 
-   .link-icon {
+    .link-icon {
       width: 44px;
       height: 44px;
       border-radius: 12px;
@@ -166,28 +168,28 @@
       flex-shrink: 0;
     }
 
-   .link-info {
+    .link-info {
       flex-grow: 1;
     }
 
-   .link-title {
+    .link-title {
       font-weight: 600;
       font-size: 1rem;
       margin-bottom: 2px;
     }
 
-   .link-desc {
+    .link-desc {
       font-size: 0.825rem;
       color: var(--text-sub);
     }
 
-   .chevron {
+    .chevron {
       color: var(--text-sub);
       font-size: 0.9rem;
       transition: transform 0.2s;
     }
 
-   .link-card:hover.chevron {
+    .link-card:hover .chevron {
       transform: translateX(4px);
       color: var(--accent);
     }
@@ -234,7 +236,7 @@
         <i class="fa-solid fa-chevron-right chevron"></i>
       </a>
 
-      <!-- Item 2: Contoh aplikasi lainnya -->
+      <!-- Item 2 -->
       <a href="https://sheetviewer.vercel.app/view.html?script=https%3A%2F%2Fscript.google.com%2Fmacros%2Fs%2FAKfycbygQ7UpqM92edd6ykH5pvIPAoMZvSZRF4-kBFj2mESq05GO7Ron4P5Sb3IkWvgf1fG8%2Fexec&ssId=1sYFyDaVbR8-bEiw8FBkytwnMJo8ptr1IXC23OXPpsyk&sheet=Master_OPD&cols=0%2C1%2C4&title=PIN+aplikasi" class="link-card">
         <div class="link-icon">
           <i class="fa-solid fa-key"></i>
@@ -246,7 +248,7 @@
         <i class="fa-solid fa-chevron-right chevron"></i>
       </a>
 
-      <!-- Item 3: Contoh aplikasi lainnya -->
+      <!-- Item 3 -->
       <a href="https://sheetviewer.vercel.app/view.html?script=https%3A%2F%2Fscript.google.com%2Fmacros%2Fs%2FAKfycbygQ7UpqM92edd6ykH5pvIPAoMZvSZRF4-kBFj2mESq05GO7Ron4P5Sb3IkWvgf1fG8%2Fexec&ssId=1f3fXY84IWIMF_KTKAinNm4dBK2PPTaQ8vPosrKNZv98&sheet=Sheet1&cols=0%2C1%2C4&title=Pelaksana+Upacara+tahun+2026" class="link-card">
         <div class="link-icon">
           <i class="fa-solid fa-calendar-days"></i>
@@ -266,7 +268,7 @@
   </div>
 
   <script>
-    // Fitur Live Search Sederhana
+    // Live Search
     function filterLinks() {
       const input = document.getElementById('searchInput');
       const filter = input.value.toLowerCase();
@@ -283,6 +285,15 @@
           cards[i].style.display = "none";
         }
       }
+    }
+
+    // Registrasi Service Worker PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('Service Worker Registered!', reg))
+          .catch((err) => console.log('Service Worker Registration Failed!', err));
+      });
     }
   </script>
 
