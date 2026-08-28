@@ -1,6 +1,6 @@
 {
-  "name": "Portal Aplikasi Interaktif",
-  "short_name": "PortalApp",
+  "name": "Portal link App",
+  "short_name": "link2app",
   "description": "Kumpulan modul, visualisasi, dan alat bantu interaktif",
   "start_url": "./index.html",
   "display": "standalone",
