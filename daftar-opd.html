@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Perangkat Daerah Kab. Inhu 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Menyembunyikan elemen non-cetak saat pengguna mengunduh via Print/PDF browser */
+        @media print {
+            .no-print { display: none !important; }
+            body { background-color: #ffffff !important; color: #000000 !important; }
+            .shadow-md, .shadow-sm, .shadow-lg { box-shadow: none !important; }
+            .border { border-color: #cbd5e1 !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-emerald-700 to-teal-800 text-white shadow-lg border-b-4 border-amber-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center relative">
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight uppercase drop-shadow-sm">
+                Daftar Perangkat Daerah
+            </h1>
+            <h2 class="text-xl sm:text-2xl font-bold text-amber-300 mt-1">
+                Kabupaten Indragiri Hulu Tahun 2026
+            </h2>
+            <p class="mt-2 text-xs sm:text-sm font-medium bg-emerald-900/40 inline-block px-4 py-1.5 rounded-full border border-emerald-400/30">
+                Berdasarkan Perda Nomor 2 Tahun 2024
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- Action Buttons (Print PDF & Share) + Controls -->
+        <div class="bg-white rounded-2xl shadow-md p-4 sm:p-6 mb-8 border border-slate-100 no-print">
+            
+            <!-- Quick Actions: PDF & Share -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-100">
+                <span class="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                    <i class="fa-solid fa-sliders text-emerald-600 mr-1"></i> Panel Aksi
+                </span>
+                <div class="flex gap-2">
+                    <!-- Tombol Cetak / Simpan PDF -->
+                    <button onclick="downloadPDF()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-sm">
+                        <i class="fa-solid fa-file-pdf text-sm"></i>
+                        <span>Cetak / Unduh PDF</span>
+                    </button>
+                    <!-- Tombol Bagikan -->
+                    <button onclick="shareDocument()" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-sm">
+                        <i class="fa-solid fa-share-nodes text-sm"></i>
+                        <span>Bagikan</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Search Input -->
+                <div class="relative w-full md:w-1/2">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid font-bold fa-magnifying-glass"></i>
+                    </div>
+                    <input type="text" id="searchInput" onkeyup="filterData()" 
+                        placeholder="Cari dinas, badan, kecamatan, atau kelurahan..." 
+                        class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all text-sm">
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 w-full md:w-auto justify-start md:justify-end" id="filterButtons">
+                    <button onclick="setFilter('ALL')" class="filter-btn active bg-emerald-600 text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all shadow-sm hover:bg-emerald-700">Semua</button>
+                    <button onclick="setFilter('SEKRETARIAT')" class="filter-btn bg-slate-100 text-slate-600 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all hover:bg-slate-200">Sekretariat & Inspektorat</button>
+                    <button onclick="setFilter('DINAS')" class="filter-btn bg-slate-100 text-slate-600 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all hover:bg-slate-200">Dinas</button>
+                    <button onclick="setFilter('BADAN')" class="filter-btn bg-slate-100 text-slate-600 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all hover:bg-slate-200">Badan</button>
+                    <button onclick="setFilter('WILAYAH')" class="filter-btn bg-slate-100 text-slate-600 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all hover:bg-slate-200">Kecamatan & Kelurahan</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dynamic Data Container -->
+        <div id="dataGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic cards will be rendered here via Javascript -->
+        </div>
+
+        <!-- Empty Search Result -->
+        <div id="noResults" class="hidden text-center py-12">
+            <i class="fa-solid fa-folder-open text-4xl text-slate-300 mb-3"></i>
+            <p class="text-slate-500 font-medium">Tidak ada data perangkat daerah yang cocok dengan pencarian.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 py-6 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs">
+            <p>Pemerintah Kabupaten Indragiri Hulu &copy; 2026</p>
+            <p class="mt-1 text-slate-500">Berdasarkan Perda Nomor 2 Tahun 2024</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const dataset = [
+            {
+                categoryGroup: "SEKRETARIAT",
+                code: "I",
+                title: "Sekretariat Daerah",
+                icon: "fa-building-columns",
+                items: ["Sekretariat Daerah Kabupaten Indragiri Hulu"]
+            },
+            {
+                categoryGroup: "SEKRETARIAT",
+                code: "II",
+                title: "Sekretariat Dewan Perwakilan Rakyat",
+                icon: "fa-users-rectangle",
+                items: ["Sekretariat Dewan Perwakilan Rakyat Daerah"]
+            },
+            {
+                categoryGroup: "SEKRETARIAT",
+                code: "III",
+                title: "Inspektorat Daerah",
+                icon: "fa-clipboard-check",
+                items: ["Inspektorat Daerah Kabupaten Indragiri Hulu"]
+            },
+            {
+                categoryGroup: "DINAS",
+                code: "IV",
+                title: "Dinas Daerah",
+                icon: "fa-briefcase",
+                items: [
+                    "Dinas Pendidikan dan Kebudayaan",
+                    "Dinas Kesehatan",
+                    "Dinas Pekerjaan Umum, Penataan Ruang, Perumahan dan Kawasan Permukiman",
+                    "Dinas Pengendalian Penduduk, Keluarga Berencana, Pemberdayaan Perempuan dan Perlindungan Anak",
+                    "Dinas Lingkungan Hidup, Kebersihan dan Pertamanan",
+                    "Dinas Kependudukan dan Pencatatan Sipil",
+                    "Dinas Perindustrian, Perdagangan, Koperasi, Usaha Kecil dan Menengah",
+                    "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
+                    "Dinas Perkebunan, Peternakan dan Perikanan",
+                    "Dinas Sosial",
+                    "Dinas Tenaga Kerja",
+                    "Dinas Ketahanan Pangan, Tanaman Pangan dan Hortikultura",
+                    "Dinas Pemberdayaan Masyarakat dan Desa",
+                    "Dinas Perhubungan",
+                    "Dinas Komunikasi, Informatika, dan Statistik",
+                    "Dinas Kepemudaan, Olahraga dan Pariwisata",
+                    "Dinas Perpustakaan dan Kearsipan",
+                    "Satuan Polisi Pamong Praja"
+                ]
+            },
+            {
+                categoryGroup: "BADAN",
+                code: "V",
+                title: "Badan Daerah",
+                icon: "fa-chart-pie",
+                items: [
+                    "Badan Perencanaan Pembangunan, Riset dan Inovasi Daerah",
+                    "Badan Pendapatan Daerah",
+                    "Badan Pengelolaan Keuangan dan Aset Daerah",
+                    "Badan Kesatuan Bangsa dan Politik",
+                    "Badan Penanggulangan Bencana Daerah, Pemadam Kebakaran dan Penyelamatan",
+                    "Badan Kepegawaian, Pendidikan dan Pelatihan Daerah"
+                ]
+            },
+            {
+                categoryGroup: "WILAYAH",
+                code: "VI",
+                title: "Kecamatan & Kelurahan",
+                icon: "fa-map-location-dot",
+                subGroups: [
+                    { name: "Kecamatan Batang Cenaku", kelurahan: [] },
+                    { name: "Kecamatan Batang Gansal", kelurahan: [] },
+                    { name: "Kecamatan Batang Peranap", kelurahan: [] },
+                    { name: "Kecamatan Kelayang", kelurahan: ["Kelurahan Simpang Kelayang"] },
+                    { name: "Kecamatan Kuala Cenaku", kelurahan: [] },
+                    { name: "Kecamatan Lirik", kelurahan: [] },
+                    { name: "Kecamatan Lubuk Batu Jaya", kelurahan: [] },
+                    { name: "Kecamatan Pasir Penyu", kelurahan: ["Kelurahan Tanjung Gading", "Kelurahan Sekar Mawar", "Kelurahan Tanah Merah", "Kelurahan Kembang Harum", "Air Molek 1"] },
+                    { name: "Kecamatan Peranap", kelurahan: ["Kelurahan Peranap", "Kelurahan Batu Rijal Hilir"] },
+                    { name: "Kecamatan Rakit Kulim", kelurahan: [] },
+                    { name: "Kecamatan Rengat", kelurahan: ["Kelurahan Kampung Dagang", "Kelurahan Kampung Besar Kota", "Kelurahan Pasar Kota", "Kelurahan Kampung Besar Seberang", "Kelurahan Sekip Hulu", "Kelurahan Sekip Hilir"] },
+                    { name: "Kecamatan Rengat Barat", kelurahan: ["Kelurahan Pematang Reba"] },
+                    { name: "Kecamatan Seberida", kelurahan: ["Kelurahan Pangkalan Kasai"] },
+                    { name: "Kecamatan Sungai Lala", kelurahan: [] }
+                ]
+            }
+        ];
+
+        let currentCategory = 'ALL';
+
+        function renderData(filterText = '') {
+            const grid = document.getElementById('dataGrid');
+            const noResults = document.getElementById('noResults');
+            grid.innerHTML = '';
+            let totalMatchCount = 0;
+
+            dataset.forEach(sec => {
+                if (currentCategory !== 'ALL' && sec.categoryGroup !== currentCategory) return;
+
+                let matchingItems = [];
+                let matchingSubGroups = [];
+
+                if (sec.items) {
+                    matchingItems = sec.items.filter(item => 
+                        item.toLowerCase().includes(filterText.toLowerCase())
+                    );
+                }
+
+                if (sec.subGroups) {
+                    sec.subGroups.forEach(sub => {
+                        const matchKec = sub.name.toLowerCase().includes(filterText.toLowerCase());
+                        const matchKel = sub.kelurahan.filter(k => k.toLowerCase().includes(filterText.toLowerCase()));
+
+                        if (matchKec || matchKel.length > 0) {
+                            matchingSubGroups.push({
+                                name: sub.name,
+                                kelurahan: filterText === '' ? sub.kelurahan : (matchKec ? sub.kelurahan : matchKel)
+                            });
+                        }
+                    });
+                }
+
+                const hasMatches = matchingItems.length > 0 || matchingSubGroups.length > 0;
+
+                if (hasMatches) {
+                    totalMatchCount++;
+                    const card = document.createElement('div');
+                    card.className = "bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col";
+
+                    let headerHtml = `
+                        <div class="bg-slate-100 border-b border-slate-200 px-5 py-4 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-emerald-600 text-white font-extrabold text-xs px-2.5 py-1 rounded-md">${sec.code}</span>
+                                <h3 class="font-bold text-slate-800 text-base">${sec.title}</h3>
+                            </div>
+                            <i class="fa-solid ${sec.icon} text-slate-400"></i>
+                        </div>
+                    `;
+
+                    let bodyHtml = `<div class="p-5 flex-grow space-y-2">`;
+
+                    if (sec.items) {
+                        bodyHtml += `<ol class="space-y-2">`;
+                        matchingItems.forEach((item, idx) => {
+                            bodyHtml += `
+                                <li class="flex items-start text-xs sm:text-sm text-slate-700">
+                                    <span class="inline-block w-6 text-slate-400 font-medium shrink-0">${idx + 1}.</span>
+                                    <span>${item}</span>
+                                </li>
+                            `;
+                        });
+                        bodyHtml += `</ol>`;
+                    }
+
+                    if (sec.subGroups) {
+                        bodyHtml += `<div class="space-y-4">`;
+                        matchingSubGroups.forEach((sub, idx) => {
+                            bodyHtml += `
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                    <div class="font-semibold text-xs sm:text-sm text-emerald-900 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-location-dot text-emerald-600 text-xs"></i>
+                                        ${idx + 1}. ${sub.name}
+                                    </div>
+                            `;
+                            if (sub.kelurahan.length > 0) {
+                                bodyHtml += `<ul class="mt-2 ml-5 space-y-1 border-l-2 border-emerald-200 pl-3">`;
+                                sub.kelurahan.forEach(kel => {
+                                    bodyHtml += `<li class="text-xs text-slate-600">${kel}</li>`;
+                                });
+                                bodyHtml += `</ul>`;
+                            }
+                            bodyHtml += `</div>`;
+                        });
+                        bodyHtml += `</div>`;
+                    }
+
+                    bodyHtml += `</div>`;
+                    card.innerHTML = headerHtml + bodyHtml;
+                    grid.appendChild(card);
+                }
+            });
+
+            if (totalMatchCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function filterData() {
+            const query = document.getElementById('searchInput').value;
+            renderData(query);
+        }
+
+        function setFilter(category) {
+            currentCategory = category;
+            
+            const buttons = document.querySelectorAll('#filterButtons button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-emerald-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+
+            event.currentTarget.classList.remove('bg-slate-100', 'text-slate-600');
+            event.currentTarget.classList.add('bg-emerald-600', 'text-white', 'shadow-sm');
+
+            filterData();
+        }
+
+        // Fungsi Unduh/Cetak PDF
+        function downloadPDF() {
+            window.print();
+        }
+
+        // Fungsi Bagikan (Web Share API)
+        async function shareDocument() {
+            const shareData = {
+                title: 'Daftar Perangkat Daerah Kab. Inhu 2026',
+                text: 'Daftar Perangkat Daerah Kabupaten Indragiri Hulu Tahun 2026 (Berdasarkan Perda Nomor 2 Tahun 2024)',
+                url: "[https://drive.google.com/uc?export=download&id=155BSuvRquIv0g4Ok3xaefIeJVhM9hPIy](https://drive.google.com/uc?export=download&id=155BSuvRquIv0g4Ok3xaefIeJVhM9hPIy)"
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    console.log('Batal berbagi:', err);
+                }
+            } else {
+                // Fallback jika browser tidak mendukung navigator.share
+                navigator.clipboard.writeText(window.location.href);
+                alert('Tautan dokumen berhasil disalin ke papan klip (clipboard)!');
+            }
+        }
+
+        // Initial Render
+        renderData();
+    </script>
+</body>
+</html>
