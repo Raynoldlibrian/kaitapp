@@ -1,11 +1,11 @@
 {
-  "name": "Portal link App",
-  "short_name": "link2app",
+  "name": "Portal Aplikasi Interaktif",
+  "short_name": "Portal App",
   "description": "Kumpulan modul, visualisasi, dan alat bantu interaktif",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
+  "background_color": "#f3e6cc",
+  "theme_color": "#f3e6cc",
   "icons": [
     {
       "src": "icons/icon-any-192.png",
