@@ -1,4 +1,4 @@
-const CACHE_NAME = 'portal-app-v3-ivory';
+const CACHE_NAME = 'portal-app-v4-ivory';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
