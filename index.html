@@ -35,71 +35,71 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* 1. BACKGROUND RESPONSIF (SHRINK / STRETCH KE UKURAN LAYAR) */
+    /* 1. BACKGROUND IVORY FLORAL EMBOSS
+       Logo sudah menyatu di gambar background, jadi tidak dibuat ulang di HTML. */
     html, body {
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden; /* Mencegah layar utama bergeser */
+      height: 100%;
+      min-height: 100%;
+      width: 100%;
+      overflow: hidden;
       background-color: #f3e6cc;
       background-image: url('background-portal2.jpg');
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: 100% 100%; /* Stretch & shrink mengikuti resolusi jendela */
+      background-size: 100% 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: var(--text-main);
     }
 
-    /* 2. WRAPPER UTAMA: TERKUNCI PAS DI DALAM BINGKAI EMBOSS */
+    body { height: 100vh; height: 100dvh; }
+
+    /* Wrapper mengikuti area aman di dalam bingkai background */
     .app-frame {
-      width: min(68vw, 425px); /* Menjamin card tidak melebihi garis ukiran tepi */
-      height: 88vh;            /* Memberi jarak aman pada ukiran atas & bawah */
+      width: min(70vw, 450px);
+      height: 90vh;
+      height: 90dvh;
       display: flex;
       flex-direction: column;
       position: relative;
+      min-height: 0;
     }
 
-    /* 3. HERO & HEADER (STATIS DI ATAS) */
+    /* 3. HEADER: judul berada DI BAWAH logo yang sudah ada di background */
     .hero-fixed {
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      margin-bottom: 8px;
-    }
-
-    .hero-logo {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 1px;
-      filter: drop-shadow(0 3px 6px rgba(90, 70, 35, 0.25));
-    }
-
-    .hero-logo img {
       width: 100%;
-      height: 100%;
-      object-fit: contain;
+      padding: 19vh 10px 0;
+      margin-bottom: 10px;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
     }
 
-    /* Heading 1 Baris dengan Timbul Letterpress */
+    /* Heading menyatu dengan permukaan kertas */
     .hero-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(0.92rem, 3.8vw, 1.15rem);
+      font-size: clamp(0.78rem, 3.35vw, 1.2rem);
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.045em;
+      line-height: 1.25;
       color: var(--primary-teal);
       white-space: nowrap;
       text-transform: uppercase;
-      margin-bottom: 10px;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95), 0 -1px 1px rgba(0, 0, 0, 0.2);
+      margin-bottom: 12px;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95), 0 2px 3px rgba(100, 76, 38, 0.12);
     }
 
     /* 4. SEARCH BAR DEBOSSED */
     .search-bar-wrap {
-      width: 100%;
+      width: calc(100% - 8px);
       position: relative;
+      margin-inline: auto;
     }
 
     .search-bar-wrap input {
@@ -107,8 +107,10 @@
       padding: 10px 14px 10px 38px;
       border-radius: 12px;
       border: 1px solid var(--card-border);
-      background-color: rgba(255, 253, 248, 0.3);
-      background-image: var(--linen-texture);
+      background-color: #f4e8d2;
+      background-image: linear-gradient(rgba(255, 251, 239, 0.18), rgba(239, 224, 198, 0.08)), url('card-paper-texture.jpg');
+      background-repeat: no-repeat, repeat;
+      background-size: 100% 100%, 240px 240px;
       color: var(--text-main);
       font-size: 0.86rem;
       outline: none;
@@ -131,61 +133,153 @@
       font-size: 0.88rem;
     }
 
-    /* 5. CONTAINER DEBOSS (SATU-SATUNYA AREA YANG BISA DI-SCROLL) */
+    /* 5. LIST KARTU: hanya area ini yang dapat di-scroll.
+       Panel luarnya transparan agar background kertas tetap terlihat. */
     .cards-deboss-container {
       flex: 1;
       min-height: 0;
       overflow-y: auto;
-      padding: 10px 8px;
-      margin-top: 8px;
-      border-radius: 18px;
-      
-      /* Cekung ke dalam kertas */
-      border: 1px solid rgba(165, 130, 75, 0.32);
-      background-color: rgba(246, 237, 218, 0.52);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      box-shadow: inset 2px 3px 6px var(--emboss-shadow), 
-                  inset -2px -2px 5px var(--emboss-light);
-      
+      padding: 8px 10px 22px;
+      margin-top: 4px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 10px;
       scrollbar-width: thin;
       scrollbar-color: rgba(175, 142, 85, 0.35) transparent;
+      overscroll-behavior: contain;
     }
 
-    .cards-deboss-container::-webkit-scrollbar {
-      width: 4px;
-    }
+    .cards-deboss-container::-webkit-scrollbar { width: 4px; }
     .cards-deboss-container::-webkit-scrollbar-thumb {
       background: rgba(175, 142, 85, 0.35);
       border-radius: 8px;
     }
 
     /* 6. CARD BERTEKSTUR KERTAS LINEN DENGAN EMBOSS TIMBUL */
+    
+    /* ==========================================
+      LAYERED PAPER HERITAGE UI
+      Kartu kertas ivory bertekstur linen
+      ========================================== */
+
     .link-card {
       display: flex;
       align-items: center;
-      padding: 11px 13px;
-      /* Background Kertas Linen (Warna Krem + Serat Tenun SVG) */
-      background-color: #F4E7D4; /*#fffdf7 */
-      background-image: var(--linen-texture);
-      border: 1px solid var(--card-border);
-      border-radius: 13px;
-      text-decoration: none;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+
+      width: 100%;
+      flex: 0 0 auto;
+      padding: 14px 14px;
+      gap: 0;
+
+      /* Kertas ivory sungguhan: tekstur diambil dari background utama */
+      background-color: #f3e6ce;
+      background-image:
+        linear-gradient(
+          145deg,
+          rgba(255, 251, 239, 0.20),
+          rgba(239, 224, 198, 0.08)
+        ),
+        url('card-paper-texture.jpg');
+      background-repeat: no-repeat, repeat;
+      background-size: 100% 100%, 240px 240px;
+      background-blend-mode: normal, multiply;
+
+      border: 1px solid #dfcba7;
+      border-radius: 17px;
+
       color: var(--text-main);
-      box-shadow: 2px 3px 6px var(--emboss-shadow), inset 1px 1px 0 var(--emboss-light);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      flex-shrink: 0;
+      text-decoration: none;
+
+      /* Efek tebal kertas dan bayangan */
+      box-shadow:
+        0 3px 0 #e5d3b3,
+        0 7px 13px rgba(91, 69, 39, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -1px 0 rgba(177, 145, 89, 0.12);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+      animation: rise-in 0.55s ease both;
     }
 
-    .link-card:hover, .link-card:active {
-      transform: translateY(-2px);
-      background-color: #ffffff;
-      border-color: rgba(31, 74, 71, 0.5);
-      box-shadow: 2px 5px 11px rgba(80, 60, 30, 0.18), inset 1px 1px 0 #fff;
+    /* Garis relief tipis pada permukaan kertas */
+    .link-card::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 12px;
+
+      pointer-events: none;
+      z-index: 0;
     }
+
+    /* Ornamen layered paper-cut di sudut kanan bawah */
+    .link-card::after {
+      content: "";
+      position: absolute;
+
+      width: 54px;
+      height: 54px;
+      right: 2px;
+      bottom: 0;
+
+      background-image: url("ornamen-card.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      opacity: 0.62;
+      filter: drop-shadow(1px 2px 1px rgba(107, 79, 39, 0.16));
+
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Konten selalu berada di atas ornamen */
+    .link-icon,
+    .link-info,
+    .chevron {
+      position: relative;
+      z-index: 1;
+    }
+
+    .link-card:hover,
+    .link-card:focus-visible {
+      transform: translateY(-2px);
+
+      border-color: #c5a66c;
+
+      box-shadow:
+        0 4px 0 #dfc9a2,
+        0 11px 18px rgba(91, 69, 39, 0.16),
+        inset 0 1px 0 #fffdf5;
+
+      outline: none;
+    }
+
+    /* Interaksi terasa seperti kertas ditekan */
+    .link-card:active {
+      transform: translateY(1px);
+
+      box-shadow:
+        0 1px 0 #dfc9a2,
+        0 3px 6px rgba(91, 69, 39, 0.1);
+    }
+
 
     .link-icon {
       width: 38px;
@@ -240,10 +334,30 @@
       text-align: center;
       font-size: 0.7rem;
       color: #8c8069;
-      margin-top: 6px;
+      margin-top: 4px;
+      padding-bottom: 1.2vh;
       letter-spacing: 0.03em;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95), 0 1px 2px rgba(99, 77, 43, 0.12);
       flex-shrink: 0;
+    }
+
+    /* Ponsel pendek: kurangi ruang kosong di header agar kartu tetap lega */
+    @media (max-height: 760px) {
+      .hero-fixed { padding-top: 17vh; }
+      .hero-title { margin-bottom: 9px; }
+      .link-card { padding: 11px 12px; }
+      .link-icon { width: 34px; height: 34px; margin-right: 10px; }
+      .link-card::after { width: 44px; height: 44px; opacity: 0.4; }
+      .footer-note { font-size: 0.66rem; padding-bottom: 0.8vh; }
+    }
+
+    @media (max-width: 380px) {
+      .app-frame { width: 82vw; }
+      .hero-title { font-size: 0.76rem; letter-spacing: 0.025em; }
+      .search-bar-wrap { width: calc(100% - 4px); }
+      .link-card { padding: 11px 10px; }
+      .link-title { font-size: 0.82rem; }
+      .link-desc { font-size: 0.71rem; }
     }
   </style>
 </head>
@@ -251,14 +365,11 @@
 
   <div class="app-frame">
     
-    <!-- 1. Header Statis: Logo & Judul Rapat -->
+    <!-- Header: logo sudah menjadi bagian dari background-portal2.jpg -->
     <header class="hero-fixed">
-      <div class="hero-logo">
-        <img src="logo-dd.png" alt="Logo DD">
-      </div>
       <h1 class="hero-title">Portal Aplikasi Interaktif</h1>
       
-      <!-- Search Bar Sticky -->
+      <!-- Search bar tetap di header; hanya daftar kartu yang scroll -->
       <div class="search-bar-wrap">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" id="searchInput" onkeyup="filterLinks()" placeholder="Cari modul atau aplikasi...">
