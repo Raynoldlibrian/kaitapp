@@ -3,69 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navigator Perbup Inhu No. 68/2023 - Pedoman Perjalanan Dinas</title>
+  <title>Navigator Perbup Inhu No. 20 Tahun 2026 - Perjalanan Dinas APBD</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .badge-lumpsum { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
-    .badge-atcost { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .badge-lump { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+    .badge-riil { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .badge-new { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased">
 
   <!-- Header -->
-  <header class="bg-emerald-800 text-white shadow-md">
+  <header class="bg-gradient-to-r from-teal-900 via-teal-800 to-slate-900 text-white shadow-lg border-b border-teal-700/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div>
-        <div class="flex items-center gap-3">
-          <span class="p-2 bg-emerald-900 rounded-lg text-emerald-300 font-bold text-xl"><i class="fa-solid fa-scale-balanced"></i></span>
-          <div>
-            <h1 class="text-xl sm:text-2xl font-bold tracking-tight">Portal Navigasi Perbup Inhu No. 68/2023</h1>
-            <p class="text-xs sm:text-sm text-emerald-200">Pedoman Perjalanan Dinas APBD Kabupaten Indragiri Hulu</p>
+      <div class="flex items-center gap-3.5">
+        <span class="p-3 bg-teal-700/60 rounded-xl text-teal-300 text-2xl shadow-inner border border-teal-500/30">
+          <i class="fa-solid fa-scale-balanced"></i>
+        </span>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-xl sm:text-2xl font-black tracking-tight">Portal Regulasi Perbup Inhu No. 20/2026</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-400 text-teal-950 uppercase tracking-wide">Terbaru</span>
           </div>
+          <p class="text-xs sm:text-sm text-teal-200 mt-0.5">Pedoman Perjalanan Dinas APBD Pasca Penyesuaian Perpres No. 72 Tahun 2025</p>
         </div>
       </div>
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-emerald-100">
-          <i class="fa-solid fa-file-pdf"></i> Salinan Resmi 42 Halaman
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-white/10 text-teal-100 border border-white/20">
+          <i class="fa-regular fa-calendar-check mr-1 text-teal-300"></i> Ditetapkan: 10 Agustus 2026
+        </span>
+        <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-200 border border-emerald-400/30">
+          <i class="fa-solid fa-check-double mr-1"></i> Cabut Perbup 68/2023 & 33/2024
         </span>
       </div>
     </div>
   </header>
 
-  <!-- Navigation Tabs -->
-  <nav class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex gap-8">
-      <button onclick="switchTab('simulasi')" id="tab-btn-simulasi" class="tab-btn py-4 text-sm font-semibold border-b-2 border-emerald-600 text-emerald-700 flex items-center gap-2">
-        <i class="fa-solid fa-calculator"></i> Matrix & Cek Hak Perjalanan Dinas
+  <!-- Navbar Navigasi -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex overflow-x-auto gap-6 scrollbar-none">
+      <button onclick="switchTab('simulasi')" id="tab-btn-simulasi" class="tab-btn py-4 text-sm font-bold border-b-2 border-teal-600 text-teal-800 flex items-center gap-2 whitespace-nowrap">
+        <i class="fa-solid fa-calculator"></i> Cek Hak & Dokumen SPJ
       </button>
-      <button onclick="switchTab('pencarian')" id="tab-btn-pencarian" class="tab-btn py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent flex items-center gap-2">
-        <i class="fa-solid fa-magnifying-glass"></i> Cari Aturan & Pasal
+      <button onclick="switchTab('komparasi')" id="tab-btn-komparasi" class="tab-btn py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent flex items-center gap-2 whitespace-nowrap">
+        <i class="fa-solid fa-code-compare"></i> Poin Perubahan (2026 vs 2023)
       </button>
-      <button onclick="switchTab('lampiran')" id="tab-btn-lampiran" class="tab-btn py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent flex items-center gap-2">
-        <i class="fa-solid fa-folder-open"></i> Katalog Lampiran I - XI
+      <button onclick="switchTab('pasal')" id="tab-btn-pasal" class="tab-btn py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent flex items-center gap-2 whitespace-nowrap">
+        <i class="fa-solid fa-book-open"></i> Cari Pasal & Aturan Teknis
+      </button>
+      <button onclick="switchTab('lampiran')" id="tab-btn-lampiran" class="tab-btn py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent flex items-center gap-2 whitespace-nowrap">
+        <i class="fa-solid fa-folder-closed"></i> Berkas Lampiran I - X
       </button>
     </div>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Main Area -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
 
-    <!-- TAB 1: SIMULASI & FILTER HAK PERJALANAN DINAS -->
+    <!-- TAB 1: SIMULATOR HAK & SPJ -->
     <section id="tab-simulasi" class="tab-content block">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
-        <!-- Filter Form -->
-        <div class="lg:col-span-5 bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-          <h2 class="text-base font-bold text-slate-800 border-b pb-3 flex items-center gap-2">
-            <i class="fa-solid fa-sliders text-emerald-600"></i> Parameter Pelaksana & Penugasan
-          </h2>
+        <!-- Kolom Form Filter -->
+        <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="border-b border-slate-100 pb-3">
+            <h2 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
+              <i class="fa-solid fa-sliders text-teal-600"></i> Parameter Pelaksana & Dinas
+            </h2>
+            <p class="text-xs text-slate-500 mt-1">Sesuaikan data pelaksana untuk melihat kalkulasi hak berdasarkan Perbup 20/2026.</p>
+          </div>
 
           <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Jabatan / Golongan Pelaksana</label>
-            <select id="sim-jabatan" onchange="runSimulation()" class="w-full text-sm rounded-lg border-slate-300 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 p-2.5 border">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Jabatan / Golongan Pelaksana SPD</label>
+            <select id="sim-jabatan" onchange="runSimulation()" class="w-full text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 bg-slate-50 p-2.5 outline-none font-medium text-slate-800">
               <optgroup label="Tingkat A">
                 <option value="bupati">Bupati / Wakil Bupati</option>
                 <option value="pimpinan_dprd">Ketua / Wakil Ketua DPRD</option>
@@ -76,496 +89,546 @@
               </optgroup>
               <optgroup label="Tingkat C">
                 <option value="eselon_3">Pejabat Eselon III / ASN Golongan IV</option>
-                <option value="fungsional_madya">Fungsional Ahli Utama / Ahli Madya</option>
+                <option value="jf_madya">Fungsional Ahli Utama & Ahli Madya</option>
               </optgroup>
               <optgroup label="Tingkat D">
                 <option value="eselon_4">Pejabat Eselon IV / ASN Golongan III</option>
-                <option value="fungsional_muda">Fungsional Ahli Muda / Ahli Pertama</option>
-                <option value="gol_1_2">ASN Golongan I / Golongan II</option>
-                <option value="non_asn">Non-ASN (THL, Honorer, Tenaga Ahli, Tokoh Masyarakat)</option>
+                <option value="jf_pertama">Fungsional Ahli Muda & Ahli Pertama</option>
+                <option value="gol_1_2">ASN Golongan I & Golongan II</option>
+                <option value="pppk_penuh">PPPK (Waktu Penuh)</option>
+                <option value="pppk_paruh" selected>PPPK Paruh Waktu (Aturan Baru)</option>
+                <option value="pihak_lain">Pihak Lain (Supir, THL, Tokoh Masy.)</option>
               </optgroup>
             </select>
           </div>
 
           <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Kategori Lokasi & Durasi Penugasan</label>
-            <select id="sim-tujuan" onchange="runSimulation()" class="w-full text-sm rounded-lg border-slate-300 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 p-2.5 border">
-              <option value="dalam_kota">Dalam Kota (&lt; 8 Jam)</option>
-              <option value="dalam_daerah">Dalam Daerah / Kabupaten Inhu (&ge; 8 Jam)</option>
-              <option value="luar_daerah_riau">Luar Daerah (Wilayah Provinsi Riau / Pekanbaru)</option>
-              <option value="luar_daerah_luar_riau" selected>Luar Daerah (Luar Wilayah Provinsi Riau / Jakarta / dll)</option>
-              <option value="luar_negeri">Luar Negeri</option>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Klasifikasi Perjalanan & Wilayah</label>
+            <select id="sim-tujuan" onchange="runSimulation()" class="w-full text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 bg-slate-50 p-2.5 outline-none font-medium text-slate-800">
+              <option value="dalam_kota_pendek">Dalam Kota (&lt; 8 Jam)</option>
+              <option value="dalam_kota_panjang">Dalam Kota (&ge; 8 Jam / Menginap)</option>
+              <option value="biasa_riau">Perjalanan Dinas Biasa (Ibukota/Kab. dalam Riau)</option>
+              <option value="biasa_luar_riau" selected>Perjalanan Dinas Biasa (Luar Provinsi Riau)</option>
+              <option value="luar_negeri">Perjalanan Dinas Luar Negeri</option>
             </select>
           </div>
 
           <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Penggunaan Fasilitas Penginapan</label>
-            <select id="sim-penginapan" onchange="runSimulation()" class="w-full text-sm rounded-lg border-slate-300 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 p-2.5 border">
-              <option value="ada_hotel" selected>Menginap di Hotel / Tempat Menginap Resmi (Ada Bill)</option>
-              <option value="tanpa_hotel">Tidak Menggunakan Hotel (Klaim 30% Lumpsum)</option>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Fasilitas Tempat Menginap</label>
+            <select id="sim-hotel" onchange="runSimulation()" class="w-full text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 bg-slate-50 p-2.5 outline-none font-medium text-slate-800">
+              <option value="ada_bill" selected>Menginap di Hotel / Tempat Resmi (Bukti Kuitansi Ada)</option>
+              <option value="tanpa_bill">Tidak Pakai Hotel / Kuitansi Nihil (Klaim 30% Lumpsum)</option>
             </select>
           </div>
 
-          <div class="pt-2 border-t text-xs text-slate-500 space-y-1">
-            <p><i class="fa-solid fa-circle-info text-emerald-600"></i> Standar biaya tarif rupiah tetap mengacu pada Perbup Standar Satuan Harga (SSH) yang berlaku.</p>
+          <div class="p-3.5 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <div class="font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Peringatan Aturan 2026:
+            </div>
+            <p>Pimpinan dan Anggota DPRD saat ini kembali memakai skema <strong>BIAYA RIIL (At Cost)</strong> untuk tiket dan hotel berdasarkan Pasal 10 ayat (8) & Pasal 11 ayat (2).</p>
           </div>
         </div>
 
-        <!-- Result Box -->
-        <div class="lg:col-span-7 bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <!-- Kolom Output Hasil -->
+        <div class="lg:col-span-7 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <div>
-            <div class="flex flex-wrap items-center justify-between pb-4 border-b gap-2">
+            <div class="flex flex-wrap items-center justify-between pb-4 border-b border-slate-100 gap-2">
               <div>
-                <span id="res-tingkat" class="px-2.5 py-1 text-xs font-bold rounded bg-slate-100 text-slate-700 border">Tingkat A</span>
-                <h3 id="res-title" class="text-lg font-bold text-slate-900 mt-1">Hasil Analisis Hak & Tata Kelola SPJ</h3>
+                <span id="out-tingkat" class="px-2.5 py-1 text-xs font-extrabold rounded-md bg-teal-50 text-teal-800 border border-teal-200">TINGKAT D</span>
+                <h3 id="out-judul" class="text-base sm:text-lg font-bold text-slate-900 mt-1">Skema PPPK Paruh Waktu</h3>
               </div>
-              <span id="res-skema-badge" class="px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase"></span>
+              <span id="out-metode-tag" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase badge-riil"></span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
-              <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200">
-                <span class="text-xs text-slate-500 block font-medium">Batas Maksimal Waktu</span>
-                <span id="res-batas-waktu" class="text-sm font-semibold text-slate-800">4 hari kalender (+2 hari perjalanan)</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-4">
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Batas Maksimal Waktu</span>
+                <span id="out-durasi" class="text-sm font-bold text-slate-800">Maks. 4 hari (+2 hari perjalanan)</span>
               </div>
-              <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200">
-                <span class="text-xs text-slate-500 block font-medium">Fasilitas Transportasi Resmi</span>
-                <span id="res-fasilitas-transport" class="text-sm font-semibold text-slate-800">Darat: Super Eksekutif | Udara: Bisnis</span>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Standar Moda Transportasi</span>
+                <span id="out-transport" class="text-sm font-bold text-slate-800">Darat: Eksekutif | Udara: Ekonomi</span>
               </div>
             </div>
 
-            <!-- Breakdown Komponen Biaya -->
-            <div class="mt-5 space-y-3">
-              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-600">Skema Pembayaran Komponen Biaya:</h4>
-              <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs border border-slate-200 rounded-lg">
-                  <thead class="bg-slate-100 text-slate-700 uppercase">
+            <!-- Tabel Komponen Biaya -->
+            <div class="mt-5">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Rincian Komponen Hak Pembiayaan:</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <table class="w-full text-left text-xs">
+                  <thead class="bg-slate-100 text-slate-700 uppercase font-semibold">
                     <tr>
-                      <th class="p-2.5 border-b">Komponen Biaya</th>
-                      <th class="p-2.5 border-b">Metode Bayar</th>
-                      <th class="p-2.5 border-b">Aturan Pelaksanaan</th>
+                      <th class="p-2.5 border-b">Komponen</th>
+                      <th class="p-2.5 border-b">Mekanisme</th>
+                      <th class="p-2.5 border-b">Keterangan & Rujukan</th>
                     </tr>
                   </thead>
-                  <tbody id="res-table-komponen" class="divide-y divide-slate-200 font-medium">
+                  <tbody id="out-tbody" class="divide-y divide-slate-200">
                     <!-- Dynamic Rows -->
                   </tbody>
                 </table>
               </div>
             </div>
 
-            <!-- Checklist SPJ -->
+            <!-- SPJ & Dokumen Wajib -->
             <div class="mt-5">
-              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2 flex items-center justify-between">
-                <span>Dokumen Wajib Pertanggungjawaban (SPJ)</span>
-                <span id="res-deadline-spj" class="text-[11px] font-normal text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200"></span>
-              </h4>
-              <ul id="res-checklist-spj" class="space-y-1.5 text-xs text-slate-700">
-                <!-- Checklist dynamic -->
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-600">Dokumen Wajib Pertanggungjawaban (SPJ)</h4>
+                <span id="out-tenggat-spj" class="text-[11px] font-bold text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded border border-teal-200"></span>
+              </div>
+              <ul id="out-spj-list" class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <!-- Checklist items -->
               </ul>
             </div>
           </div>
 
-          <div id="res-khusus-note" class="mt-5 p-3 rounded-lg text-xs bg-emerald-50 text-emerald-800 border border-emerald-200">
-            <!-- Catatan Aturan Khusus -->
+          <div id="out-catatan-khusus" class="mt-5 p-3.5 rounded-xl text-xs bg-slate-50 border border-slate-200 text-slate-700">
+            <!-- Catatan Tambahan -->
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- TAB 2: PENCARIAN & FILTER PASAL -->
-    <section id="tab-pencarian" class="tab-content hidden space-y-4">
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-3 items-center justify-between">
-        <div class="relative w-full md:w-1/2">
-          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
-          <input type="text" id="searchInput" oninput="filterRules()" placeholder="Cari kata kunci (contoh: lumpsum, non asn, 30%, taksi, dprd, spj, pembatalan)..." class="w-full pl-10 pr-4 py-2.5 text-sm rounded-lg border border-slate-300 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50">
-        </div>
-        <div class="flex flex-wrap gap-2 w-full md:w-auto">
-          <button onclick="setRuleCategory('all')" class="cat-filter-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 text-white">Semua</button>
-          <button onclick="setRuleCategory('dprd')" class="cat-filter-btn px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">DPRD (Lumpsum)</button>
-          <button onclick="setRuleCategory('asn')" class="cat-filter-btn px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">ASN (At Cost)</button>
-          <button onclick="setRuleCategory('non_asn')" class="cat-filter-btn px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">Non-ASN / THL</button>
-          <button onclick="setRuleCategory('penginapan')" class="cat-filter-btn px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">Penginapan 30%</button>
-          <button onclick="setRuleCategory('spj')" class="cat-filter-btn px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">SPJ & Pelaporan</button>
-        </div>
-      </div>
+    <!-- TAB 2: KOMPARASI ATURAN BARU (2026 VS 2023) -->
+    <section id="tab-komparasi" class="tab-content hidden space-y-4">
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <h2 class="text-lg font-black text-slate-900 mb-1 flex items-center gap-2">
+          <i class="fa-solid fa-code-compare text-teal-600"></i> Matriks Transformasi Perbup Inhu
+        </h2>
+        <p class="text-xs text-slate-500 mb-6">Perbandingan langsung klausul hukum penting antara Perbup No. 68 Tahun 2023 dengan Perbup Pengganti No. 20 Tahun 2026.</p>
 
-      <div id="rulesContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Dynamic Cards -->
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-800 text-white uppercase text-xs">
+              <tr>
+                <th class="p-3.5 w-1/4">Pokok Ketentuan</th>
+                <th class="p-3.5 w-1/3 bg-slate-700 text-slate-300">Regulasi Lama (Perbup 68/2023)</th>
+                <th class="p-3.5 w-5/12 bg-teal-900 text-teal-200">Regulasi Baru (Perbup 20/2026)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 leading-relaxed text-xs">
+              <tr>
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50">Pertanggungjawaban DPRD (Transport & Hotel)</td>
+                <td class="p-3.5 text-slate-600 bg-slate-50/50"><strong>LUMPSUM penuh</strong> berdasar Perpres 53/2023, cukup lampirkan Pakta Integritas bermaterai.</td>
+                <td class="p-3.5 text-teal-950 bg-teal-50/40 font-medium"><strong>BIAYA RIIL (At Cost)</strong>. Tiket resmi, boarding pass, dan kuitansi hotel wajib dilampirkan (Pasal 10 ayat 8, Pasal 11 ayat 2). Pakta integritas ditiadakan.</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50">Pengaturan Pegawai Honorer / Non-ASN</td>
+                <td class="p-3.5 text-slate-600 bg-slate-50/50">Istilah Non-ASN (Tenaga Kontrak/THL). Dibatasi maksimal <strong>10 kali</strong> perjalanan dinas dalam setahun.</td>
+                <td class="p-3.5 text-teal-950 bg-teal-50/40 font-medium">Istilah resmi <strong>PPPK Paruh Waktu</strong> & <strong>Pihak Lain</strong>. Kuota dinas PPPK Paruh Waktu diperlonggar maksimal <strong>15 kali</strong> per tahun (Pasal 7 ayat 4).</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50">Platform Fee Tiket & Biaya Bagasi Pesawat</td>
+                <td class="p-3.5 text-slate-600 bg-slate-50/50">Tidak diatur secara eksplisit. Sering menjadi temuan administrasi.</td>
+                <td class="p-3.5 text-teal-950 bg-teal-50/40 font-medium"><strong>Dapat dibayarkan secara riil</strong> untuk biaya platform pemesanan dan bagasi yang tak terhindarkan dengan persetujuan PA/KPA (Pasal 10 ayat 1e & ayat 2).</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50">Keberangkatan Fleksibel (Tempat Sah / FWS)</td>
+                <td class="p-3.5 text-slate-600 bg-slate-50/50">Wajib berangkat dan pulang dari/ke tempat kedudukan kantor SKPD.</td>
+                <td class="p-3.5 text-teal-950 bg-teal-50/40 font-medium">Boleh berangkat/pulang dari <strong>Tempat Sah</strong> (lokasi tugas lain, cuti, libur sah, FWS) maksimal sebesar pagu estimasi dari kantor (Pasal 10 ayat 3).</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50">Sistem Digitalisasi Dokumen</td>
+                <td class="p-3.5 text-slate-600 bg-slate-50/50">Hanya format manual berbasis blangko cetak.</td>
+                <td class="p-3.5 text-teal-950 bg-teal-50/40 font-medium">Diresmikan bab khusus: <strong>Sistem Elektronik Perjalanan Dinas</strong> untuk penerbitan ST dan SPD secara elektronik (Bab IX, Pasal 34-35).</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50">Pejabat Pembuat Komitmen (PPK)</td>
+                <td class="p-3.5 text-slate-600 bg-slate-50/50">Hanya menyebut Pengguna Anggaran (PA) dan Kuasa Pengguna Anggaran (KPA).</td>
+                <td class="p-3.5 text-teal-950 bg-teal-50/40 font-medium">Eksplisit mencantumkan kewenangan <strong>PPK</strong> dapat menandatangani SPD (Pasal 24 ayat 4).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <!-- TAB 3: KATALOG LAMPIRAN RESMI -->
-    <section id="tab-lampiran" class="tab-content hidden space-y-4">
-      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-        <h2 class="text-base font-bold text-slate-900 mb-1 flex items-center gap-2">
-          <i class="fa-solid fa-file-invoice text-emerald-600"></i> Direktori Format Lampiran Perbup No. 68/2023
-        </h2>
-        <p class="text-xs text-slate-500 mb-6">Gunakan daftar ini untuk memverifikasi kesesuaian format surat penugasan, pertanggungjawaban, maupun form pernyataan resmi.</p>
+    <!-- TAB 3: PENCARIAN PASAL & KATEGORI -->
+    <section id="tab-pasal" class="tab-content hidden space-y-4">
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-3 items-center justify-between">
+        <div class="relative w-full md:w-1/2">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+          <input type="text" id="filterInput" oninput="applyRulesFilter()" placeholder="Cari pasal, kata kunci (contoh: at cost, bagasi, paruh waktu, mobil, 30%, spj)..." class="w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 bg-slate-50 outline-none">
+        </div>
+        <div class="flex flex-wrap gap-1.5 w-full md:w-auto">
+          <button onclick="setCategoryFilter('all')" class="cat-pill px-3 py-1.5 text-xs font-bold rounded-lg bg-teal-700 text-white">Semua</button>
+          <button onclick="setCategoryFilter('dprd')" class="cat-pill px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">DPRD (At Cost)</button>
+          <button onclick="setCategoryFilter('paruh_waktu')" class="cat-pill px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">PPPK Paruh Waktu</button>
+          <button onclick="setCategoryFilter('transport')" class="cat-pill px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">Transport & Bagasi</button>
+          <button onclick="setCategoryFilter('hotel')" class="cat-pill px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">Penginapan 30%</button>
+          <button onclick="setCategoryFilter('spj')" class="cat-pill px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">SPJ & Laporan</button>
+        </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="lampiranGrid">
-          <!-- Dynamic Lampiran Cards -->
+      <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Dynamic Articles -->
+      </div>
+    </section>
+
+    <!-- TAB 4: BERKAS LAMPIRAN RESMI I - X -->
+    <section id="tab-lampiran" class="tab-content hidden space-y-4">
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="border-b border-slate-100 pb-4 mb-5">
+          <h2 class="text-lg font-black text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-folder-tree text-teal-600"></i> Katalog Berkas Lampiran Resmi (I s/d X)
+          </h2>
+          <p class="text-xs text-slate-500 mt-1">Daftar format blangko baku Perbup Inhu No. 20/2026. Lampiran XI Pakta Integritas resmi dieliminasi dari naskah perbup.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="lampiranContainer">
+          <!-- Dynamic Cards Lampiran -->
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- Footer -->
   <footer class="bg-white border-t border-slate-200 text-center py-4 text-xs text-slate-500 mt-auto">
-    Peraturan Bupati Indragiri Hulu Nomor 68 Tahun 2023 | Tanggal Penetapan: 29 November 2023 | Ditandatangani oleh Rezita Meylani Yopi
+    Pemerintah Kabupaten Indragiri Hulu &bull; Peraturan Bupati Nomor 20 Tahun 2026 &bull; Ditetapkan Bupati Ade Agus Hartanto
   </footer>
 
+  <!-- SCRIPT LOGIC -->
   <script>
-    // DATA PERBUP
-    const RULES = [
+    // DATA PASAL PERBUP 20/2026
+    const PERBUP_RULES = [
       {
-        id: "p4",
         pasal: "Pasal 4",
-        kategori: ["asn", "dprd"],
-        judul: "Prinsip Utama Perjalanan Dinas",
-        ringkasan: "Perjalanan dinas harus mematuhi prinsip: 1) Selektif (hanya kepentingan prioritas tinggi); 2) Ketersediaan anggaran & kinerja SKPD; 3) Efisiensi penggunaan belanja; 4) Akuntabilitas penerbitan tugas dan pembebanan biaya.",
-        ref: "Halaman 5, Pasal 4"
+        kategori: ["prinsip"],
+        judul: "4 Prinsip Pokok Pelaksanaan Dinas",
+        uraian: "Perjalanan dinas wajib mematuhi 4 pilar: 1) Selektif (hanya prioritas tinggi urusan Pemda); 2) Ketersediaan anggaran & keselarasan kinerja SKPD; 3) Efisiensi penggunaan belanja; 4) Akuntabilitas penerbitan tugas dan pembebanan anggaran.",
+        ref: "Hal. 48, Bab II"
       },
       {
-        id: "p5",
         pasal: "Pasal 5 ayat (4)-(7)",
-        kategori: ["asn", "dprd"],
-        judul: "Batasan Hari Perjalanan Dinas Luar Daerah",
-        ringkasan: "1) Tujuan Ibukota Provinsi / Kabupaten lain di Provinsi Riau: Maksimal 3 hari kalender. 2) Luar Wilayah Riau: Maksimal 4 hari kalender + 2 hari perjalanan. 3) Pengecualian batas hari hanya untuk Diklat/Bimtek penjenjangan K/L dan Konsinyering penyusunan LKPD.",
-        ref: "Halaman 6, Pasal 5"
+        kategori: ["biasa"],
+        judul: "Batas Waktu Perjalanan Dinas Biasa",
+        uraian: "Tujuan dalam wilayah Provinsi Riau maksimal 3 hari kalender. Luar Provinsi Riau maksimal 4 hari kalender (+2 hari perjalanan). Batas ini hanya boleh dilampaui jika Bimtek penjenjangan K/L atau konsinyering laporan keuangan Pemda.",
+        ref: "Hal. 49-50, Bab III"
       },
       {
-        id: "p6",
-        pasal: "Pasal 6",
-        kategori: ["non_asn"],
-        judul: "Ketentuan Ketat Perjalanan Dinas Non-ASN / Tenaga Kontrak / THL",
-        ringkasan: "Non-ASN disetarakan Golongan II. THL dibatasi MAKSIMAL 10 KALI penugasan dalam 1 tahun anggaran. Pendampingan dibatasi max 5 orang. Wajib ada Surat Usulan SKPD, Izin Tertulis dari Sekretaris Daerah (Lampiran III), serta SPTJM Kepala SKPD (Lampiran II).",
-        ref: "Halaman 7, Pasal 6"
+        pasal: "Pasal 7 ayat (1)-(7)",
+        kategori: ["paruh_waktu"],
+        judul: "Aturan Khusus PPPK Paruh Waktu & Hak Biaya",
+        uraian: "PPPK Paruh Waktu dapat dinas jika ada tugas mendesak, akreditasi/bimtek, peliputan pimpinan, atau keahlian tak didapat di tujuan. Kuota penugasan DIBATASI MAKSIMAL 15 KALI per tahun anggaran. Hak biaya disetarakan PNS Golongan II. Wajib izin Sekda & SPTJM.",
+        ref: "Hal. 50-51, Bab III"
       },
       {
-        id: "p8_9",
-        pasal: "Pasal 8 & 9",
-        kategori: ["asn", "dprd"],
-        judul: "Metode Biaya Transportasi: DPRD vs ASN",
-        ringkasan: "Uang harian dibayar lumpsum. Biaya transportasi Pimpinan & Anggota DPRD dibayarkan LUMPSUM. Biaya transportasi Bupati, Wabup, ASN, dan Non-ASN dibayarkan BIAYA RIIL (AT COST). Pengecualian: Transport dalam daerah dibayar lumpsum.",
-        ref: "Halaman 8-9, Pasal 8-9"
+        pasal: "Pasal 10 ayat (1) huruf e & ayat (2)",
+        kategori: ["transport"],
+        judul: "Biaya Layanan Tiket & Bagasi Pesawat Diakomodir",
+        uraian: "Klausul Baru 2026: Biaya layanan pemesanan tiket (platform/biaya penyedia jasa), bagasi resmi pesawat, dan biaya tak terhindarkan lainnya diakui sebagai biaya transport sah sepanjang disetujui PA/KPA dan dibutuhkan untuk tugas.",
+        ref: "Hal. 52, Bab III"
       },
       {
-        id: "p9_mobil",
-        pasal: "Pasal 9 ayat (9)-(15)",
-        kategori: ["asn"],
-        judul: "Aturan Kendaraan Dinas, Mobil Pribadi & Biaya Taksi",
-        ringkasan: "Jika pakai Mobil Dinas: Tidak dapat transport (masuk operasional dinas), kecuali BBM habis/kurang wajib melampirkan nota asli + copy STNK. Mobil Pribadi (Plat Hitam): diganti BBM sesuai nota asli + copy STNK. Perjalanan darat di dalam Provinsi Riau TIDAK DIBERIKAN biaya taksi.",
-        ref: "Halaman 9, Pasal 9"
+        pasal: "Pasal 10 ayat (3)",
+        kategori: ["transport"],
+        judul: "Fleksibilitas Berangkat dari Tempat Sah / FWS",
+        uraian: "Keberangkatan/kepulangan kini dapat dilakukan dari/ke 'Tempat Sah' (lokasi tugas lain, Flexible Working Space, lokasi cuti resmi) dengan biaya riil maksimal sebesar estimasi biaya dari kantor kedudukan asal.",
+        ref: "Hal. 52, Bab III"
       },
       {
-        id: "p10",
-        pasal: "Pasal 10 ayat (4)-(6)",
-        kategori: ["penginapan", "asn"],
-        judul: "Klaim Biaya Penginapan 30% Lumpsum",
-        ringkasan: "Jika ASN/Non-ASN tidak menginap di hotel/tempat resmi, diberikan biaya penginapan 30% LUMPSUM dari tarif SSH. Ketentuan kuota malam: Ke Pekanbaru/Kabupaten lain di Riau dibayar 1 malam; Ke Jakarta/Provinsi lain dibayar 2 malam. Wajib melampirkan Daftar Pengeluaran Riil (Lampiran X).",
-        ref: "Halaman 10, Pasal 10 & Lampiran X"
+        pasal: "Pasal 10 ayat (8) & 11 ayat (2)",
+        kategori: ["dprd", "transport", "hotel"],
+        judul: "Transportasi & Hotel DPRD Kembali Jadi Biaya Riil (At Cost)",
+        uraian: "Perubahan Besar 2026: Biaya transportasi dan hotel bagi Pimpinan & Anggota DPRD TIDAK LAGI LUMPSUM. Wajib dibayarkan secara BIAYA RIIL (At Cost) berdasar bukti pengeluaran yang sah (tiket, boarding pass, bill hotel resmi).",
+        ref: "Hal. 53-54, Bab III"
       },
       {
-        id: "p11",
-        pasal: "Pasal 11",
-        kategori: ["dprd", "asn"],
+        pasal: "Pasal 10 ayat (9)-(15)",
+        kategori: ["transport"],
+        judul: "Kendaraan Dinas, Mobil Plat Hitam & Biaya Taksi",
+        uraian: "Kendaraan Dinas: Transport tidak dibayar (masuk operasional), kecuali BBM habis/tak dianggarkan wajib ada nota riil + copy STNK. Mobil Pribadi: Diganti BBM riil + copy STNK. Perjalanan darat tujuan dalam Provinsi Riau TIDAK DIBERIKAN biaya taksi.",
+        ref: "Hal. 53, Bab III"
+      },
+      {
+        pasal: "Pasal 11 ayat (3)",
+        kategori: ["hotel"],
+        judul: "Klaim Uang Penginapan 30% Lumpsum",
+        uraian: "Jika pelaksana dinas tidak menginap di hotel/tempat berbayar, diberikan hak kompensasi 30% lumpsum dari standar tarif SSH. Ketentuan kuota: Ke Pekanbaru/Kabupaten di Riau dibayar 1 malam; Ke Jakarta/Luar Riau dibayar 2 malam. Wajib Lampiran X.",
+        ref: "Hal. 54, Bab III"
+      },
+      {
+        pasal: "Pasal 12",
+        kategori: ["prinsip", "dprd"],
         judul: "Penerima Uang Representasi",
-        ringkasan: "Uang representasi dibayar secara lumpsum selama hari dinas khusus kepada: Bupati, Wakil Bupati, Ketua DPRD, Wakil Ketua DPRD, Anggota DPRD, Sekretaris Daerah, Asisten Sekda, dan Pejabat Eselon II.",
-        ref: "Halaman 10, Pasal 11"
+        uraian: "Uang Representasi dibayar lumpsum selama hari dinas khusus kepada: Bupati, Wakil Bupati, Ketua DPRD, Wakil Ketua DPRD, Anggota DPRD, Sekretaris Daerah, Asisten, dan Pejabat Eselon II.",
+        ref: "Hal. 55, Bab III"
       },
       {
-        id: "p14",
-        pasal: "Pasal 14 & Lampiran V",
-        kategori: ["asn", "dprd"],
-        judul: "Tingkatan Biaya & Fasilitas Angkutan Darat/Udara",
-        ringkasan: "Tingkat A (Bupati/Wabup/Pimpinan DPRD): Darat Super Eksekutif, Udara Bisnis. Tingkat B (Anggota DPRD/Eselon II): Darat Eksekutif, Udara Ekonomi. Tingkat C (Eselon III/Fungsional Madya/Gol IV) & Tingkat D (Eselon IV/Fungsional Pertama/Gol III/II/I/Non-ASN): Darat Eksekutif, Udara Ekonomi.",
-        ref: "Halaman 11 & 29"
+        pasal: "Pasal 17 huruf d & f",
+        kategori: ["prinsip", "dprd"],
+        judul: "Batas Kontribusi Pelatihan / Bimtek",
+        uraian: "Biaya kontribusi kegiatan/bimtek di luar akomodasi dibatasi paling banyak Rp5.000.000,-. Pengecualian khusus: Kontribusi bimbingan teknis partai politik bagi pimpinan & anggota DPRD dibatasi paling banyak Rp7.000.000,-.",
+        ref: "Hal. 57, Bab III"
       },
       {
-        id: "p17",
-        pasal: "Pasal 17",
-        kategori: ["asn", "dprd"],
-        judul: "Plafon Biaya Kontribusi Diklat / Bimtek",
-        ringkasan: "Kontribusi Bimtek/Diklat yang akomodasinya tidak ditanggung penyelenggara dibatasi MAKSIMAL Rp5.000.000,-. Khusus bimbingan teknis partai politik bagi pimpinan dan anggota DPRD dibatasi setinggi-tingginya Rp7.000.000,-.",
-        ref: "Halaman 11-12, Pasal 17"
+        pasal: "Pasal 24 ayat (4)",
+        kategori: ["spj"],
+        judul: "Pejabat Penandatangan SPD",
+        uraian: "SPD diterbitkan dan ditandatangani oleh PA (Pengguna Anggaran), KPA (Kuasa Pengguna Anggaran), atau Pejabat Pembuat Komitmen (PPK).",
+        ref: "Hal. 61, Bab V"
       },
       {
-        id: "p20",
-        pasal: "Pasal 20",
-        kategori: ["asn", "dprd"],
-        judul: "Klaim Pembebanan Biaya Pembatalan Penugasan",
-        ringkasan: "Jika perjalanan dinas batal karena tugas dinas mendesak lainnya dan tiket tidak dapat direfund, biaya pembatalan dapat dibebankan pada DPA SKPD dengan melampirkan Surat Pembatalan Tugas (Lamp. VII), Surat Pembebanan (Lamp. VIII), dan Bukti Non-Refund dari maskapai/hotel.",
-        ref: "Halaman 13, Pasal 20"
+        pasal: "Pasal 32 & 33",
+        kategori: ["spj", "dprd"],
+        judul: "Tenggat Waktu & Dokumen Pertanggungjawaban (SPJ)",
+        uraian: "Laporan hasil dinas dan SPJ rampung wajib diserahkan maksimal 5 HARI KALENDER sejak dinas selesai (30 hari untuk dinas luar negeri). DPRD kini menyerahkan bukti tiket dan bill hotel riil sama seperti ASN. Pakta integritas tidak lagi dipakai.",
+        ref: "Hal. 63-65, Bab VIII"
       },
       {
-        id: "p24",
-        pasal: "Pasal 24",
-        kategori: ["spj", "asn"],
-        judul: "Kewenangan Penandatangan Surat Tugas (ST)",
-        ringkasan: "1) Bupati/Wabup: ditandatangani Bupati. 2) Sekda/Asisten/Kepala SKPD: ditandatangani Bupati/Wabup/Sekda an. Bupati. 3) Eselon III, IV, JF, Staf SKPD: ditandatangani Kepala SKPD. 4) Pegawai UPT: ditandatangani Kepala UPT. 5) Pejabat Setda: Eselon III oleh Sekda/Asisten, Eselon IV/Staf oleh Kabag.",
-        ref: "Halaman 14-15, Pasal 24"
-      },
-      {
-        id: "p35_36",
-        pasal: "Pasal 35 & 36",
-        kategori: ["spj", "dprd", "asn"],
-        judul: "Batas Waktu dan Dokumen Pertanggungjawaban (SPJ)",
-        ringkasan: "SPJ & Laporan wajib disampaikan selambat-lambatnya 5 HARI KALENDER sejak perjalanan selesai (30 hari untuk luar negeri). DPRD: Menggunakan ST, SPD Visum, Laporan + Foto, dan PAKTA INTEGRITAS. ASN/Non-ASN: Menggunakan ST, SPD Visum, Laporan + Foto, SPD Rampung, Boarding Pass, Tiket, dan Bill Hotel Riil.",
-        ref: "Halaman 19-21, Pasal 35-36"
+        pasal: "Pasal 34 - 35",
+        kategori: ["spj"],
+        judul: "Sistem Elektronik Perjalanan Dinas",
+        uraian: "Pemerintah Daerah mengintegrasikan proses perjalanan dinas melalui sistem elektronik. ST dan SPD resmi dapat diterbitkan dan dikelola secara elektronik sesuai peraturan perundang-undangan.",
+        ref: "Hal. 65-66, Bab IX"
       }
     ];
 
-    const LAMPIRAN_LIST = [
-      { no: "I", judul: "Surat Pernyataan Kebutuhan Tenaga Teknis", desc: "Dibuat oleh Kepala SKPD untuk menugaskan Non-ASN/THL luar daerah.", hal: "Hal. 23" },
-      { no: "II", judul: "Surat Pernyataan Tanggung Jawab Mutlak (SPTJM)", desc: "Tanggung jawab mutlak Kepala SKPD bermaterai Rp10.000 atas kebenaran tugas Non-ASN.", hal: "Hal. 25" },
-      { no: "III", judul: "Surat Izin Sekretaris Daerah", desc: "Persetujuan tertulis Sekda untuk keberangkatan Tenaga Kontrak/THL.", hal: "Hal. 26" },
-      { no: "IV", judul: "Rincian Biaya & Format Perhitungan SPD Rampung", desc: "Formulir rincian pengeluaran serta perhitungan selisih kurang/lebih bayar panjar.", hal: "Hal. 28" },
-      { no: "V", judul: "Tabel Fasilitas dan Kelas Transportasi Luar Daerah", desc: "Matriks resmi moda darat dan udara untuk Tingkat A, B, C, dan D.", hal: "Hal. 29" },
-      { no: "VI", judul: "Tanda Terima Uang Muka / Panjar Perjalanan Dinas", desc: "Tanda bukti penerimaan panjar uang harian dan transport sebelum berangkat.", hal: "Hal. 30" },
-      { no: "VII", judul: "Surat Pernyataan Pembatalan Tugas Jabatan", desc: "Format pembatalan resmi penugasan dinas karena alasan dinas mendesak.", hal: "Hal. 31" },
-      { no: "VIII", judul: "Surat Pembebanan Biaya Pembatalan", desc: "Form pembebanan kerugian tiket/hotel non-refundable ke DPA SKPD.", hal: "Hal. 32" },
-      { no: "IX", judul: "Format Baku Surat Tugas (ST) & Blangko SPD", desc: "Format ST 6 kategori pejabat serta formulir lembar visum SPD berangkat/tiba.", hal: "Hal. 33-40" },
-      { no: "X", judul: "Daftar Pengeluaran Riil (Penginapan 30%)", desc: "Formulir klaim 30% lumpsum jika tidak memakai hotel/bukti tidak diperoleh.", hal: "Hal. 41" },
-      { no: "XI", judul: "Pakta Integritas Pimpinan & Anggota DPRD", desc: "Format surat pernyataan bermaterai Rp10.000 untuk pertanggungjawaban lumpsum DPRD.", hal: "Hal. 42" }
+    // DATA LAMPIRAN RESMI (I - X)
+    const LAMPIRAN_DATA = [
+      { no: "I", judul: "Surat Pernyataan Kebutuhan PPPK Paruh Waktu", hal: "Hal. 67", desc: "Dibuat Kepala Perangkat Daerah untuk menugaskan PPPK Paruh Waktu ke luar daerah." },
+      { no: "II", judul: "Surat Pernyataan Tanggung Jawab Mutlak (SPTJM)", hal: "Hal. 69", desc: "Tanggung jawab mutlak berkekuatan hukum Kepala SKPD bermaterai Rp10.000 atas penugasan PPPK Paruh Waktu." },
+      { no: "III", judul: "Surat Izin Sekretaris Daerah", hal: "Hal. 70", desc: "Format izin dan persetujuan tertulis dari Sekda Inhu atas penugasan PPPK Paruh Waktu." },
+      { no: "IV", judul: "Rincian Biaya & Format Perhitungan SPD Rampung", hal: "Hal. 72", desc: "Blangko rekapitulasi biaya perjalanan dan perhitungan selisih lebih/kurang bayar." },
+      { no: "V", judul: "Tabel Fasilitas & Kelas Transportasi Biasa", hal: "Hal. 73", desc: "Klasifikasi resmi moda pesawat dan bus: Tingkat A (Super Eksekutif/Bisnis), B, C, D (Eksekutif/Ekonomi)." },
+      { no: "VI", judul: "Tanda Terima Uang Muka / Panjar Perjalanan Dinas", hal: "Hal. 74", desc: "Format tanda terima pembayaran panjar uang harian dan taksiran transport sebelum berangkat." },
+      { no: "VII", judul: "Surat Pernyataan Pembatalan Tugas Dinas", hal: "Hal. 75", desc: "Format pembatalan resmi karena alasan tugas dinas mendesak lainnya yang tak dapat ditunda." },
+      { no: "VIII", judul: "Surat Pernyataan Pembebanan Biaya Pembatalan", hal: "Hal. 76", desc: "Pembebanan kerugian tiket/penginapan yang tidak dapat di-refund ke beban DPA SKPD." },
+      { no: "IX", judul: "Blangko Baku Surat Tugas (ST) & Lembar Visum SPD", hal: "Hal. 77-84", desc: "Format ST untuk 6 tingkatan pejabat serta lembar SPD memuat visum kedatangan dan kepulangan." },
+      { no: "X", judul: "Daftar Pengeluaran Riil (Klaim Hotel 30%)", hal: "Hal. 85", desc: "Pernyataan sah bermaterai bagi pelaksana yang tidak menginap di hotel untuk mencairkan hak 30% lumpsum." }
     ];
 
     // TAB CONTROLLER
-    function switchTab(tabId) {
+    function switchTab(id) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('border-emerald-600', 'text-emerald-700', 'font-semibold');
+        btn.classList.remove('border-teal-600', 'text-teal-800', 'font-bold');
         btn.classList.add('text-slate-500', 'border-transparent', 'font-medium');
       });
 
-      document.getElementById('tab-' + tabId).classList.remove('hidden');
-      const activeBtn = document.getElementById('tab-btn-' + tabId);
-      activeBtn.classList.remove('text-slate-500', 'border-transparent', 'font-medium');
-      activeBtn.classList.add('border-emerald-600', 'text-emerald-700', 'font-semibold');
+      document.getElementById('tab-' + id).classList.remove('hidden');
+      const active = document.getElementById('tab-btn-' + id);
+      active.classList.remove('text-slate-500', 'border-transparent', 'font-medium');
+      active.classList.add('border-teal-600', 'text-teal-800', 'font-bold');
     }
 
-    // SIMULASI ENGINE
+    // SIMULATOR ENGINE 2026
     function runSimulation() {
-      const jabatan = document.getElementById('sim-jabatan').value;
+      const jab = document.getElementById('sim-jabatan').value;
       const tujuan = document.getElementById('sim-tujuan').value;
-      const penginapan = document.getElementById('sim-penginapan').value;
+      const hotel = document.getElementById('sim-hotel').value;
 
-      let tingkat = "Tingkat D";
-      let isDPRD = false;
+      let tingkat = "TINGKAT D";
       let isBupati = false;
+      let isDPRD = false;
       let isEselon2 = false;
-      let isNonASN = false;
+      let isParuhWaktu = false;
+      let isPihakLain = false;
 
-      if (jabatan === 'bupati') { tingkat = "Tingkat A"; isBupati = true; }
-      else if (jabatan === 'pimpinan_dprd') { tingkat = "Tingkat A"; isDPRD = true; }
-      else if (jabatan === 'anggota_dprd') { tingkat = "Tingkat B"; isDPRD = true; }
-      else if (jabatan === 'eselon_2') { tingkat = "Tingkat B"; isEselon2 = true; }
-      else if (jabatan === 'eselon_3' || jabatan === 'fungsional_madya') { tingkat = "Tingkat C"; }
-      else if (jabatan === 'non_asn') { tingkat = "Tingkat D"; isNonASN = true; }
+      if (jab === 'bupati') { tingkat = "TINGKAT A"; isBupati = true; }
+      else if (jab === 'pimpinan_dprd') { tingkat = "TINGKAT A"; isDPRD = true; }
+      else if (jab === 'anggota_dprd') { tingkat = "TINGKAT B"; isDPRD = true; }
+      else if (jab === 'eselon_2') { tingkat = "TINGKAT B"; isEselon2 = true; }
+      else if (jab === 'eselon_3' || jab === 'jf_madya') { tingkat = "TINGKAT C"; }
+      else if (jab === 'pppk_paruh') { isParuhWaktu = true; }
+      else if (jab === 'pihak_lain') { isPihakLain = true; }
 
-      // Update Header
-      document.getElementById('res-tingkat').innerText = tingkat;
-      document.getElementById('res-title').innerText = isDPRD 
-        ? "Skema Pimpinan & Anggota DPRD (Regim Perpres 53/2023)"
-        : (isNonASN ? "Skema Non-ASN / THL (Setara Golongan II)" : "Skema Eksekutif / ASN Pemkab Inhu");
+      // UI Tingkat & Judul
+      document.getElementById('out-tingkat').innerText = tingkat;
+      let title = "Skema ASN Perangkat Daerah";
+      if (isBupati) title = "Skema Kepala Daerah (Bupati/Wakil Bupati)";
+      else if (isDPRD) title = "Skema Pimpinan / Anggota DPRD (At Cost Sesuai Perbup 20/2026)";
+      else if (isParuhWaktu) title = "Skema PPPK Paruh Waktu (Setara Golongan II)";
+      else if (isPihakLain) title = "Skema Pihak Lain / Non-PNS (Setara Golongan II)";
+      document.getElementById('out-judul').innerText = title;
 
-      const badge = document.getElementById('res-skema-badge');
-      if (isDPRD) {
-        badge.className = "px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase badge-lumpsum";
-        badge.innerText = "Mayoritas LUMPSUM";
-      } else {
-        badge.className = "px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase badge-atcost";
-        badge.innerText = "Kombinasi AT COST (Biaya Riil)";
-      }
+      // Badge Skema
+      const badge = document.getElementById('out-metode-tag');
+      badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase badge-riil";
+      badge.innerText = "Transport & Hotel: BIAYA RIIL (At Cost)";
 
-      // Durasi & Transport
-      let durasiText = "Maksimal 4 hari kalender (+2 hari perjalanan jika di luar Riau)";
-      if (tujuan === 'dalam_kota') durasiText = "Kurang dari 8 jam kerja";
-      else if (tujuan === 'dalam_daerah') durasiText = "Minimal 8 jam kerja dalam 1 hari";
-      else if (tujuan === 'luar_daerah_riau') durasiText = "Maksimal 3 hari kalender";
-      else if (tujuan === 'luar_negeri') durasiText = "Maksimal 7 hari kalender (Pameran max 5 hari)";
-      document.getElementById('res-batas-waktu').innerText = durasiText;
+      // Durasi Maksimal
+      let durasiText = "Maks. 4 hari kalender (+2 hari perjalanan jika keluar Riau)";
+      if (tujuan === 'dalam_kota_pendek') durasiText = "Kurang dari 8 jam kerja";
+      else if (tujuan === 'dalam_kota_panjang') durasiText = "Melebihi 8 jam kerja (dapat menginap)";
+      else if (tujuan === 'biasa_riau') durasiText = "Maksimal 3 hari kalender";
+      else if (tujuan === 'luar_negeri') durasiText = "Maksimal 7 hari (Pameran max 5 hari uang harian)";
+      document.getElementById('out-durasi').innerText = durasiText;
 
-      // Fasilitas Transport
+      // Transport Kelas
       let fasDarat = "Eksekutif";
       let fasUdara = "Ekonomi";
-      if (tingkat === 'Tingkat A') {
+      if (tingkat === 'TINGKAT A') {
         fasDarat = "Super Eksekutif";
         fasUdara = "Bisnis";
       }
-      document.getElementById('res-fasilitas-transport').innerText = `Darat: ${fasDarat} | Udara: ${fasUdara}`;
+      document.getElementById('out-transport').innerText = `Darat: ${fasDarat} | Udara: ${fasUdara}`;
 
-      // Table Komponen
-      const tbody = document.getElementById('res-table-komponen');
+      // Tabel Komponen
+      const tbody = document.getElementById('out-tbody');
       tbody.innerHTML = '';
 
-      function addRow(komponen, metode, isLump, keterangan) {
+      function addRow(komp, cara, isLump, ket) {
         const tr = document.createElement('tr');
-        const badgeClass = isLump ? 'badge-lumpsum' : 'badge-atcost';
+        const badgeCls = isLump ? 'badge-lump' : 'badge-riil';
         tr.innerHTML = `
-          <td class="p-2.5 font-semibold text-slate-800">${komponen}</td>
-          <td class="p-2.5"><span class="px-2 py-0.5 rounded text-[11px] font-bold ${badgeClass}">${metode}</span></td>
-          <td class="p-2.5 text-slate-600">${keterangan}</td>
+          <td class="p-2.5 font-bold text-slate-800">${komp}</td>
+          <td class="p-2.5"><span class="px-2 py-0.5 rounded text-[11px] font-bold ${badgeCls}">${cara}</span></td>
+          <td class="p-2.5 text-slate-600">${ket}</td>
         `;
         tbody.appendChild(tr);
       }
 
-      // Uang Harian
-      addRow("Uang Harian", "Lumpsum", true, "Dibayarkan sekaligus sesuai pagu SSH per hari penugasan.");
+      // 1. Uang Harian
+      addRow("Uang Harian", "Lumpsum", true, "Dibayar sekaligus berdasar batas standar harga daerah.");
 
-      // Representasi
+      // 2. Representasi
       if (isBupati || isDPRD || isEselon2) {
-        addRow("Uang Representasi", "Lumpsum", true, "Diberikan selama hari dinas sehubungan kedudukannya (Pasal 11).");
+        addRow("Uang Representasi", "Lumpsum", true, "Diberikan selama hari dinas sesuai kedudukan jabatan (Pasal 12).");
       } else {
-        addRow("Uang Representasi", "Tidak Berhak", false, "Hanya untuk Bupati, Wabup, DPRD, Sekda, Asisten, & Eselon II.");
+        addRow("Uang Representasi", "Tidak Berhak", false, "Hanya berhak bagi Bupati, Wabup, DPRD, Sekda, Asisten, & Eselon II.");
       }
 
-      // Penginapan
-      if (tujuan === 'dalam_kota') {
-        addRow("Penginapan", "Tidak Diberikan", false, "Perjalanan dinas dalam kota tidak menginap.");
-      } else if (isDPRD) {
-        addRow("Penginapan", "Lumpsum", true, "Dibayarkan lumpsum penuh sesuai pagu batas tertinggi.");
+      // 3. Penginapan
+      if (tujuan === 'dalam_kota_pendek') {
+        addRow("Penginapan", "Tidak Ada", false, "Dinas dalam kota &lt; 8 jam tidak menginap.");
+      } else if (hotel === 'ada_bill') {
+        addRow("Uang Penginapan", "Biaya Riil (At Cost)", false, "Sesuai bill/kuitansi hotel sah (Pasal 11 ayat 2). Berlaku juga untuk DPRD.");
       } else {
-        if (penginapan === 'ada_hotel') {
-          addRow("Penginapan", "Biaya Riil (At Cost)", false, "Sesuai bill/kuitansi asli hotel resmi.");
-        } else {
-          const quota = (tujuan === 'luar_daerah_riau' || tujuan === 'dalam_daerah') ? "1 malam" : "2 malam";
-          addRow("Penginapan 30%", "Lumpsum (30%)", true, `Diberikan 30% dari standar SSH hotel tempat tujuan (Maks. ${quota}).`);
-        }
+        const malam = (tujuan === 'biasa_riau' || tujuan.includes('dalam_kota')) ? "1 malam" : "2 malam";
+        addRow("Penginapan 30%", "Lumpsum (30%)", true, `Diberikan 30% dari tarif penginapan SSH (Maks. ${malam}) via Lampiran X.`);
       }
 
-      // Transportasi
-      if (tujuan === 'dalam_kota') {
-        addRow("Bantuan Transport", "Lumpsum", true, "Diberikan bantuan uang transportasi dalam kota.");
-      } else if (tujuan === 'dalam_daerah') {
-        addRow("Transport Lokal", "Lumpsum", true, "Dibayarkan secara lumpsum.");
-      } else if (isDPRD) {
-        addRow("Biaya Transportasi", "Lumpsum", true, "Tiket darat/pesawat & taksi dibayar lumpsum.");
+      // 4. Transportasi
+      if (tujuan === 'dalam_kota_pendek') {
+        addRow("Biaya Transport", "Biaya Riil (At Cost)", false, "Dibayarkan secara riil (Pasal 10 ayat 4).");
       } else {
-        addRow("Biaya Transportasi", "Biaya Riil (At Cost)", false, "Tiket pesawat, boarding pass, taksi, tol dibayar riil.");
+        addRow("Biaya Transport", "Biaya Riil (At Cost)", false, "Tiket pesawat, bus, taksi, tol, serta platform fee & bagasi (Pasal 10).");
       }
 
-      // SPJ Checklist
-      const checkList = document.getElementById('res-checklist-spj');
-      checkList.innerHTML = '';
-      const deadline = document.getElementById('res-deadline-spj');
-      deadline.innerText = tujuan === 'luar_negeri' ? "Wajib lapor dlm 30 hari kalender" : "Wajib SPJ max 5 hari kalender";
+      // Checklist SPJ
+      const spjList = document.getElementById('out-spj-list');
+      spjList.innerHTML = '';
+      const deadline = document.getElementById('out-tenggat-spj');
+      deadline.innerText = tujuan === 'luar_negeri' ? "SPJ Maks. 30 Hari Kalender" : "SPJ Maks. 5 Hari Kalender";
 
-      const items = [
-        "Surat Tugas (ST) resmi yang telah ditandatangani pejabat berwenang",
-        "Surat Perjalanan Dinas (SPD) dengan visum cap & tanda tangan dari tempat tujuan",
-        "Laporan tertulis hasil penugasan yang dilengkapi dokumentasi/foto kegiatan"
+      const spjItems = [
+        "Surat Tugas (ST) resmi / ST Elektronik dari pejabat berwenang",
+        "SPD dengan cap & tanda tangan visum dari pejabat lokasi tujuan (atau via Sistem Elektronik)",
+        "Laporan tertulis hasil dinas dengan bukti foto dokumentasi",
+        "Form Perhitungan SPD Rampung (Lampiran IV)"
       ];
 
-      if (isDPRD) {
-        items.push("Pakta Integritas Pimpinan/Anggota DPRD bermaterai Rp10.000 (Lampiran XI)");
-      } else {
-        items.push("Formulir Rincian & Perhitungan SPD Rampung (Lampiran IV)");
-        if (tujuan !== 'dalam_kota' && tujuan !== 'dalam_daerah') {
-          items.push("Tiket pesawat asli, Boarding Pass resmi, & bukti airport tax/tol/taksi");
-          if (penginapan === 'ada_hotel') {
-            items.push("Bukti kwitansi/bill hotel atau penginapan resmi");
-          } else {
-            items.push("Daftar Pengeluaran Riil bermaterai untuk klaim penginapan 30% (Lampiran X)");
-          }
+      if (tujuan !== 'dalam_kota_pendek') {
+        spjItems.push("Tiket angkutan resmi, Boarding Pass asli pesawat, kuitansi tol, dan biaya taksi");
+        spjItems.push("Bukti pembayaran resmi platform pemesanan tiket / biaya bagasi (jika ada klaim bagasi)");
+        if (hotel === 'ada_bill') {
+          spjItems.push("Kuitansi / Bill hotel asli tempat menginap (At Cost)");
+        } else {
+          spjItems.push("Daftar Pengeluaran Riil bermaterai Rp10.000 untuk klaim 30% penginapan (Lampiran X)");
         }
       }
 
-      if (isNonASN) {
-        items.push("Surat Usulan Kepala Perangkat Daerah & Surat Izin Tertulis Sekda (Lampiran III)");
-        items.push("Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) bermaterai Rp10.000 (Lampiran II)");
+      if (isParuhWaktu) {
+        spjItems.push("Surat Pernyataan Kebutuhan PPPK Paruh Waktu oleh Kepala SKPD (Lampiran I)");
+        spjItems.push("Surat Tanggung Jawab Mutlak (SPTJM) bermaterai Rp10.000 oleh Kepala SKPD (Lampiran II)");
+        spjItems.push("Surat Izin Tertulis dari Sekretaris Daerah Kabupaten Inhu (Lampiran III)");
       }
 
-      items.forEach(txt => {
+      spjItems.forEach(item => {
         const li = document.createElement('li');
         li.className = "flex items-start gap-2";
-        li.innerHTML = `<i class="fa-solid fa-square-check text-emerald-600 mt-0.5"></i> <span>${txt}</span>`;
-        checkList.appendChild(li);
+        li.innerHTML = `<i class="fa-solid fa-circle-check text-teal-600 mt-0.5"></i> <span>${item}</span>`;
+        spjList.appendChild(li);
       });
 
-      // Special Note
-      const noteBox = document.getElementById('res-khusus-note');
-      if (isNonASN) {
-        noteBox.innerHTML = `<strong>Perhatian Khusus Non-ASN/THL:</strong> Dibatasi maksimal 10x penugasan per tahun anggaran. Pendampingan dibatasi paling banyak 5 orang (Pasal 6 ayat 6-7). Biaya disetarakan Golongan II.`;
-      } else if (isDPRD) {
-        noteBox.innerHTML = `<strong>Catatan DPRD:</strong> Sesuai Perpres 53/2023, transportasi dan penginapan berstatus Lumpsum. Kelebihan biaya melebihi pagu menjadi beban pribadi, dan wajib menyertakan Pakta Integritas (Pasal 9 ayat 14, Pasal 36 ayat 3).`;
+      // Special Note Footer
+      const note = document.getElementById('out-catatan-khusus');
+      if (isDPRD) {
+        note.innerHTML = `<strong>Penting untuk Pimpinan/Anggota DPRD:</strong> Mulai Perbup No. 20/2026, biaya transport dan penginapan tidak lagi lumpsum (Pasal 10 ayat 8, Pasal 11 ayat 2). Segala kelebihan biaya melebihi plafon standar menjadi tanggung jawab pribadi. Pakta Integritas (Lampiran XI di perbup lama) resmi dihapus.`;
+      } else if (isParuhWaktu) {
+        note.innerHTML = `<strong>Ketentuan Kuota PPPK Paruh Waktu:</strong> Dibatasi paling banyak 15 (lima belas) kali perjalanan dinas dalam 1 tahun anggaran pada suatu SKPD (Pasal 7 ayat 4). Standar biaya disetarakan dengan PNS Golongan II.`;
       } else {
-        noteBox.innerHTML = `<strong>Catatan ASN:</strong> Seluruh biaya tiket dan hotel menggunakan sistem Biaya Riil (At Cost). Jika menggunakan kendaraan dinas, biaya transport tidak dibayarkan kecuali jika BBM tidak dianggarkan (wajib melampirkan nota asli + copy STNK).`;
+        note.innerHTML = `<strong>Klausul Fleksibilitas & Tiket:</strong> Kini diakui biaya platform/bagasi tak terhindarkan (Pasal 10 ayat 1e). Perjalanan juga dapat dimulai dari Tempat Sah (FWS/tugas lain) maksimal sebesar estimasi biaya dari kantor asal (Pasal 10 ayat 3).`;
       }
     }
 
-    // RULES FILTER ENGINE
-    let currentCategory = 'all';
+    // SEARCH & FILTER PASAL
+    let activeCategory = 'all';
 
-    function setRuleCategory(cat) {
-      currentCategory = cat;
-      document.querySelectorAll('.cat-filter-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-600', 'text-white');
+    function setCategoryFilter(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        btn.classList.remove('bg-teal-700', 'text-white');
         btn.classList.add('bg-slate-100', 'text-slate-600');
       });
       event.target.classList.remove('bg-slate-100', 'text-slate-600');
-      event.target.classList.add('bg-emerald-600', 'text-white');
-      filterRules();
+      activeCategory = cat;
+      event.target.classList.add('bg-teal-700', 'text-white');
+      applyRulesFilter();
     }
 
-    function filterRules() {
-      const q = document.getElementById('searchInput').value.toLowerCase();
-      const container = document.getElementById('rulesContainer');
-      container.innerHTML = '';
+    function applyRulesFilter() {
+      const q = document.getElementById('filterInput').value.toLowerCase();
+      const grid = document.getElementById('articlesGrid');
+      grid.innerHTML = '';
 
-      const filtered = RULES.filter(r => {
-        const matchCat = (currentCategory === 'all') || r.kategori.includes(currentCategory);
-        const matchQuery = r.pasal.toLowerCase().includes(q) || 
-                           r.judul.toLowerCase().includes(q) || 
-                           r.ringkasan.toLowerCase().includes(q);
-        return matchCat && matchQuery;
+      const filtered = PERBUP_RULES.filter(r => {
+        const matchCategory = (activeCategory === 'all') || r.kategori.includes(activeCategory);
+        const matchQuery = r.pasal.toLowerCase().includes(q) ||
+                           r.judul.toLowerCase().includes(q) ||
+                           r.uraian.toLowerCase().includes(q);
+        return matchCategory && matchQuery;
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div class="col-span-2 text-center py-10 text-slate-400 text-sm">Tidak ditemukan aturan yang cocok dengan kata kunci.</div>`;
+        grid.innerHTML = `<div class="col-span-2 text-center py-10 text-slate-400 text-sm">Tidak ada ketentuan yang sesuai kata kunci.</div>`;
         return;
       }
 
       filtered.forEach(r => {
-        const card = document.createElement('div');
-        card.className = "bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-emerald-300 transition";
-        card.innerHTML = `
+        const el = document.createElement('div');
+        el.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-teal-400 transition";
+        el.innerHTML = `
           <div>
             <div class="flex items-center justify-between gap-2 mb-2">
-              <span class="px-2 py-0.5 rounded text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">${r.pasal}</span>
-              <span class="text-[11px] text-slate-400"><i class="fa-regular fa-bookmark"></i> ${r.ref}</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-extrabold bg-teal-50 text-teal-800 border border-teal-200">${r.pasal}</span>
+              <span class="text-[11px] font-semibold text-slate-400"><i class="fa-regular fa-bookmark mr-1"></i>${r.ref}</span>
             </div>
-            <h3 class="text-sm font-bold text-slate-900 mb-2">${r.judul}</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">${r.ringkasan}</p>
+            <h3 class="text-sm font-bold text-slate-900 mb-1.5">${r.judul}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">${r.uraian}</p>
           </div>
         `;
-        container.appendChild(card);
+        grid.appendChild(el);
       });
     }
 
-    // RENDER LAMPIRAN DIRECTORY
-    function renderLampiran() {
-      const grid = document.getElementById('lampiranGrid');
-      grid.innerHTML = '';
-      LAMPIRAN_LIST.forEach(l => {
+    // RENDER BERKAS LAMPIRAN
+    function renderLampiranDirectory() {
+      const container = document.getElementById('lampiranContainer');
+      container.innerHTML = '';
+      LAMPIRAN_DATA.forEach(l => {
         const card = document.createElement('div');
-        card.className = "p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-white hover:border-emerald-300 transition shadow-xs";
+        card.className = "p-4 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white hover:border-teal-400 transition shadow-xs";
         card.innerHTML = `
           <div class="flex items-center justify-between mb-2">
-            <span class="px-2 py-0.5 text-xs font-extrabold rounded bg-emerald-700 text-white">Lampiran ${l.no}</span>
+            <span class="px-2.5 py-0.5 text-xs font-black rounded bg-teal-800 text-teal-100">Lampiran ${l.no}</span>
             <span class="text-[11px] font-semibold text-slate-400">${l.hal}</span>
           </div>
           <h4 class="text-xs font-bold text-slate-800 mb-1">${l.judul}</h4>
           <p class="text-[11px] text-slate-500">${l.desc}</p>
         `;
-        grid.appendChild(card);
+        container.appendChild(card);
       });
     }
 
-    // INIT
+    // INITIALIZE
     window.onload = function() {
       runSimulation();
-      filterRules();
-      renderLampiran();
+      applyRulesFilter();
+      renderLampiranDirectory();
     };
   </script>
 </body>
